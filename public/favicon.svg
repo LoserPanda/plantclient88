@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+    <title>the bananaproject favicon</title>
+    <ellipse cx="250" cy="250" fill="#ffffff" id="svg_1" opacity="1" rx="240" ry="240" stroke="#490606" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+    <path d="m124.45007,81.37972c105.71475,-20.87545 26.08546,88.47215 25.87948,88.15738c-0.20597,-0.31479 -25.87948,-88.15738 -25.87948,-88.15738z" fill="#007fff" id="svg_28" opacity="0.8" stroke="#490606" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="rotate(-172.67 151.869 124.134)"/>
+    <!--<path d="m202.15002,45.10261c233.14873,-100.85102 57.53021,427.41623 57.07596,425.89547c-0.45425,-1.52076 -57.07596,-425.89547 -57.07596,-425.89547z" fill="#3f7f00" id="svg_26" opacity="0.8" stroke="#490606" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>-->
+    <!--<path d="m182.87055,220.84194c169.63693,-59.71145 41.85846,253.06282 41.52793,252.16241c-0.3305,-0.90041 -41.52793,-252.16241 -41.52793,-252.16241z" fill="#3f7f00" id="svg_27" opacity="0.8" stroke="#490606" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="rotate(-15.3141 226.869 343.135)"/>-->
+    <path d="m202.15002,45.10261c233.14873,-100.85102 57.53021,427.41623 57.07596,425.89547c-0.45425,-1.52076 -57.07596,-425.89547 -57.07596,-425.89547z" fill="orange" id="svg_26" opacity="0.8" stroke="#490606" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0"/>
+    <path d="m182.87055,220.84194c169.63693,-59.71145 41.85846,253.06282 41.52793,252.16241c-0.3305,-0.90041 -41.52793,-252.16241 -41.52793,-252.16241z" fill="red" id="svg_27" opacity="0.8" stroke="#490606" stroke-dasharray="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" transform="rotate(-15.3141 226.869 343.135)"/>
+</svg>
