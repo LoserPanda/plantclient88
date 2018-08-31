@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries, MarkSeries, Voronoi} from 'react-vis';
-import url from '../../../../plantclient/src/config/sensordataurl';
+import url from '../../config/sensordataurl';
 import '../../../../plantclient/node_modules/react-vis/dist/style.css';
 
 class LineChart extends Component {
