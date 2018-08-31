@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import app from "./base";
 import Komponenttijoo from "./Komponenttijoo";
-
+import LineChart from "./components/charts/LineChart";
 
 class Home extends Component {
 
@@ -52,10 +52,10 @@ class Home extends Component {
                 <h1>Home</h1>
                 <button onClick={this.logout}>Logout</button>
                 <Komponenttijoo />
+                <LineChart />
             </div>
         );
     }
-
 };
 
 export default Home;
