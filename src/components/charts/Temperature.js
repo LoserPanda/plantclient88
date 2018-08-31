@@ -37,7 +37,7 @@ class Temperature extends Component {
                     xType="ordinal"
                     width={600}
                     height={300}
-                    yDomain={[0, 100]}>
+                    yDomain={[20, 30]}>
                     <VerticalGridLines/>
                     <HorizontalGridLines/>
                     <XAxis title="Time"/>

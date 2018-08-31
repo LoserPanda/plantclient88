@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import analyysi from "./analyysi.png";
+import palmu from "./palmu.png";
 
 
 class Technologies extends Component {
@@ -10,7 +10,7 @@ class Technologies extends Component {
             <div>
                 <h2>Plants</h2>
                 <hr/>
-                <img src={analyysi} width="300" height="300" className="analytics" alt="joujou"/>
+                <img src={palmu} width="300" height="300" className="analytics" alt="joujou"/>
                 <hr/>
                 <p>Hits from the bong</p>
                 <hr/>
