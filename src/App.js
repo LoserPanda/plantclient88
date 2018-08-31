@@ -17,6 +17,7 @@ class App extends Component {
         localStorage.setItem("UID", user.uid);
         localStorage.setItem("email", user.email);
         this.setState({
+          // livedata: "",
           authenticated: true,
           currentUser: user,
           loading: false

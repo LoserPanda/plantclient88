@@ -51,6 +51,7 @@ class Home extends Component {
             <div>
                 <h1>Home</h1>
                 <button className="btn btn-default" onClick={this.logout}>Logout</button>
+
                 <Komponenttijoo/>
                 <Light/>
                 <WaterChart/>
