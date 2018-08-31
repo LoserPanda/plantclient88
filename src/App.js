@@ -14,7 +14,8 @@ class App extends Component {
   componentWillMount() {
     app.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user.email, "lol");
+        localStorage.setItem("UID", user.uid);
+        localStorage.setItem("email", user.email);
         this.setState({
           authenticated: true,
           currentUser: user,
