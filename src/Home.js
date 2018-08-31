@@ -12,8 +12,8 @@ class Home extends Component {
                 }).then(res => {
                     console.log(JSON.stringify(res));
                 });
-        }*/
-
+        }
+*/
     componentDidMount() {
         fetch('http://localhost:3001/users/', {
             method: "post",
@@ -22,7 +22,7 @@ class Home extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                UID: localStorage.getItem("UID"),
+                userID: localStorage.getItem("UID"),
                 email: localStorage.getItem("email")
             })
         })
@@ -30,6 +30,7 @@ class Home extends Component {
                 console.log("success");
             });
     }
+
 
 
     logout = () => {
