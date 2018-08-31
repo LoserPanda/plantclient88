@@ -5,24 +5,27 @@ import app from "../base";
 
 class SignUpContainer extends Component {
 
-  postUserToDB = (UID, email) => {
-    const url = "http://localhost:3001/users/";
+  postUserToDB = () => {
+    const url = "http://localhost:3001/users/add";
     fetch(url, {
+      method: 'POST',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      method: 'POST',
-      body: JSON.stringify({UID:UID, email:email})
-     
+      body: { "UID": "jouojoojo", "email": "jou@joujou.jou" }
+
     })
-      .then(res => {
-        res.json();
-      })
-      .then(response => {
-        console.log(response);
-            })
-      .catch(error => console.error('Error:', error));
+
+  }
+
+  getUser = () => {
+    const url = "http://localhost:3001/users/";
+    fetch(url).then(res => {
+      if (res.ok) return res.json()
+      else throw new Error("jou")
+    }).then(res => {
+      console.log(res);
+    })
   }
 
   handleSignUp = async event => {
@@ -32,7 +35,7 @@ class SignUpContainer extends Component {
       const user = await app
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value);
-      this.postUserToDB(user.UID, user.email);
+      this.postUserToDB();
       console.log(user.email, user.uid);
       this.props.history.push("/");
     } catch (error) {
