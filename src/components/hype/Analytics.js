@@ -12,7 +12,9 @@ class Analytics extends Component {
                 <h2>Analytics</h2>
                 <hr/>
                 <img src={analyysi} width="300" height="300" className="analytics" alt="joujou"/>
+                <hr/>
                 <p>Interactive charts</p>
+                <hr/>
 
             </div>
         )

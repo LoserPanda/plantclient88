@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import analyysi from "./analyysi.png";
+import circuit from "./circuit.png";
 
 
 class Sensors extends Component {
@@ -10,9 +10,10 @@ class Sensors extends Component {
             <div>
                 <h2>Sensors</h2>
                 <hr/>
-                <img src={analyysi} width="300" height="300" className="sensors" alt="joujou"/>
+                <img src={circuit} width="300" height="300" className="sensors" alt="joujou"/>
+                <hr/>
                 <p>Sensor your plant with the latest technologies</p>
-
+                <hr/>
             </div>
         )
     }
