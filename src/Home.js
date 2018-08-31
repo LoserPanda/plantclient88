@@ -15,8 +15,8 @@ class Home extends Component {
                 }).then(res => {
                     console.log(JSON.stringify(res));
                 });
-        }*/
-
+        }
+*/
     componentDidMount() {
         fetch('http://localhost:3001/users/', {
             method: "post",
@@ -25,7 +25,7 @@ class Home extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                UID: localStorage.getItem("UID"),
+                userID: localStorage.getItem("UID"),
                 email: localStorage.getItem("email")
             })
         })
@@ -33,6 +33,7 @@ class Home extends Component {
                 console.log("success");
             });
     }
+
 
 
     logout = () => {
@@ -53,10 +54,26 @@ class Home extends Component {
                 <button className="btn btn-default" onClick={this.logout}>Logout</button>
 
                 <Komponenttijoo/>
-                <Light/>
-                <WaterChart/>
-                <Humidity/>
-                <Temperature/>
+                <div className="Container">
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <Light/>
+                        </div>
+                        <div className="col-sm-6">
+                            <WaterChart/>
+                        </div>
+                    </div>
+                </div>
+                <div className="Container">
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <Temperature/>
+                        </div>
+                        <div className="col-sm-6">
+                            <Humidity/>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
