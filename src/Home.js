@@ -4,34 +4,31 @@ import Komponenttijoo from "./Komponenttijoo";
 import LineChart from "./components/charts/LineChart";
 
 class Home extends Component {
-
-    check = () => {
-        fetch('http://localhost:3001/users/' + localStorage.getItem("UID"))
-            .then((response) => {
-                return response.json();
-            }).then(res => {
-                return res.length;
-            });
-    }
-
-    componentWillMount() {
-        if (this.check.length === 0) {
-            console.log("jou")
-            fetch('http://localhost:3001/users/', {
-                method: "post",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    UID: localStorage.getItem("UID"),
-                    email: localStorage.getItem("email")
-                })
-            })
+    /*
+        check = () => {
+            fetch('http://localhost:3001/users/' + localStorage.getItem("UID"))
                 .then((response) => {
-                    console.log("success");
+                    return response.json();
+                }).then(res => {
+                    console.log(JSON.stringify(res));
                 });
-        }
+        }*/
+
+    componentDidMount() {
+        fetch('http://localhost:3001/users/', {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                UID: localStorage.getItem("UID"),
+                email: localStorage.getItem("email")
+            })
+        })
+            .then((response) => {
+                console.log("success");
+            });
     }
 
 
@@ -50,7 +47,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Home</h1>
-                <button onClick={this.logout}>Logout</button>
+                <button className="btn btn-default" onClick={this.logout}>Logout</button>
                 <Komponenttijoo />
                 <LineChart />
             </div>
