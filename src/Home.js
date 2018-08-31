@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import app from "./base";
 import Komponenttijoo from "./Komponenttijoo";
-import LineChart from "./components/charts/LineChart";
+import Light from "./components/charts/Light";
+import WaterChart from "./components/charts/WaterChart";
+import Humidity from "./components/charts/Humidity";
+import Temperature from "./components/charts/Temperature";
 
 class Home extends Component {
     /*
@@ -49,8 +52,11 @@ class Home extends Component {
             <div>
                 <h1>Home</h1>
                 <button className="btn btn-default" onClick={this.logout}>Logout</button>
-                <Komponenttijoo />
-                <LineChart />
+                <Komponenttijoo/>
+                <Light/>
+                <WaterChart/>
+                <Humidity/>
+                <Temperature/>
             </div>
         );
     }

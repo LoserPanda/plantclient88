@@ -3,7 +3,7 @@ import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries
 import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
 
-class LineChart extends Component {
+class Humidity extends Component {
 
 
     state = {results: []};
@@ -27,7 +27,7 @@ class LineChart extends Component {
         const dataArr = this.state.results.map((d) => {
             return {
                 x: d.time,
-                y: parseFloat(d.light)
+                y: parseFloat(d.humidity)
             }
         });
 
@@ -41,7 +41,7 @@ class LineChart extends Component {
                     <VerticalGridLines/>
                     <HorizontalGridLines/>
                     <XAxis title="Time"/>
-                    <YAxis title="Value"/>
+                    <YAxis title="Humidity"/>
                     <LineSeries
                         data={dataArr}
                         style={{stroke: 'green', strokeWidth: 2}}/>
@@ -51,4 +51,4 @@ class LineChart extends Component {
     }
 }
 
-export default LineChart;
+export default Humidity;
