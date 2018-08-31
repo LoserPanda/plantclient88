@@ -52,10 +52,26 @@ class Home extends Component {
                 <h1>Home</h1>
                 <button className="btn btn-default" onClick={this.logout}>Logout</button>
                 <Komponenttijoo/>
-                <Light/>
-                <WaterChart/>
-                <Humidity/>
-                <Temperature/>
+                <div className="Container">
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <Light/>
+                        </div>
+                        <div className="col-sm-6">
+                            <WaterChart/>
+                        </div>
+                    </div>
+                </div>
+                <div className="Container">
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <Temperature/>
+                        </div>
+                        <div className="col-sm-6">
+                            <Humidity/>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
