@@ -7,16 +7,7 @@ import Humidity from "./components/charts/Humidity";
 import Temperature from "./components/charts/Temperature";
 
 class Home extends Component {
-    /*
-        check = () => {
-            fetch('http://localhost:3001/users/' + localStorage.getItem("UID"))
-                .then((response) => {
-                    return response.json();
-                }).then(res => {
-                    console.log(JSON.stringify(res));
-                });
-        }
-*/
+    
     componentDidMount() {
         fetch('http://localhost:3001/users/', {
             method: "post",
