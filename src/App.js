@@ -7,7 +7,6 @@ import app from "./base";
 
 import Home from "./Home";
 import Auth from "./Auth";
-import NotFound from "./NotFound";
 
 class App extends Component {
   state = { loading: true, authenticated: false, user: null };
@@ -42,18 +41,17 @@ class App extends Component {
 
     return (
       <div>
-      <Router>
-        <div>
-          <PrivateRoute
-            exact
-            path="/"
-            component={Home}
-            authenticated={authenticated}
-          />
-          <Route exact path="/login" component={Auth} />
-          <Route component={NotFound}/>
-        </div>
-      </Router>
+        <Router>
+          <div>
+            <PrivateRoute
+              exact
+              path="/"
+              component={Home}
+              authenticated={authenticated}
+            />
+            <Route exact path="/login" component={Auth} />
+          </div>
+        </Router>
       </div>
     );
   }
