@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import app from "./base";
-import Komponenttijoo from "./Komponenttijoo";
 import Light from "./components/charts/Light";
 import WaterChart from "./components/charts/WaterChart";
 import Humidity from "./components/charts/Humidity";
 import Temperature from "./components/charts/Temperature";
+import TopNavigation from "./TopNavigation";
 
 class Home extends Component {
-    
+
     componentDidMount() {
         fetch('http://localhost:3001/users/', {
             method: "post",
@@ -25,8 +25,6 @@ class Home extends Component {
             });
     }
 
-
-
     logout = () => {
         app.auth().signOut().then(() => {
             localStorage.removeItem("UID");
@@ -41,10 +39,9 @@ class Home extends Component {
 
         return (
             <div>
+                <TopNavigation/>
                 <h1>Home</h1>
                 <button className="btn btn-default" onClick={this.logout}>Logout</button>
-
-                <Komponenttijoo/>
                 <div className="Container">
                     <div className="row">
                         <div className="col-sm-6">

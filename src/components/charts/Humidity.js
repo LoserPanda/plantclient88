@@ -9,7 +9,7 @@ class Humidity extends Component {
     state = {results: []};
 
     componentDidMount() {
-        fetch(url.url + "/byuserid/" + localStorage.getItem("UID"))
+        fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {
                     return response.json();
