@@ -5,6 +5,7 @@ import Light from "./components/charts/Light";
 import WaterChart from "./components/charts/WaterChart";
 import Humidity from "./components/charts/Humidity";
 import Temperature from "./components/charts/Temperature";
+import Livedata from './components/livedata/Livedata';
 
 class Home extends Component {
     /*
@@ -54,6 +55,9 @@ class Home extends Component {
                 <button className="btn btn-default" onClick={this.logout}>Logout</button>
 
                 <Komponenttijoo/>
+                <div>
+                  <Livedata/>
+                </div>
                 <div className="Container">
                     <div className="row">
                         <div className="col-sm-6">
