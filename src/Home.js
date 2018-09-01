@@ -4,7 +4,6 @@ import Livedata from './components/livedata/Livedata';
 import ChartBox from "./components/charts/ChartBox";
 import PlantBox from "./components/plants/PlantBox";
 
-
 class Home extends Component {
 
     componentDidMount() {
@@ -30,9 +29,9 @@ class Home extends Component {
                 <TopNavigation/>
                 <h1>Home</h1>
                 <div>
-                  <Livedata/>
+                  {/*<Livedata/>*/}
                 </div>
-                <ChartBox/>
+                {/*<ChartBox/>*/}
                 <PlantBox/>
             </div>
         );
