@@ -9,6 +9,7 @@ import Hype from "./components/hype/Hype";
 import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
+import LoginSignupBox from "./LoginSignuoBox";
 
 class Auth extends Component {
 
@@ -25,8 +26,7 @@ class Auth extends Component {
                             <Welcome />
                         </div>
                         <div className="col-sm-6">
-                            <LogIn />
-                            <SignUp />
+                            <LoginSignupBox/>
                         </div>
                     </div>
                 </div>
