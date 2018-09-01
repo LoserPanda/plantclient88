@@ -22,7 +22,6 @@ class Home extends Component {
             })
         })
             .then((response) => {
-                console.log("success");
             });
     }
 

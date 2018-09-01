@@ -12,7 +12,6 @@ class Temperature extends Component {
         fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {
-                    console.log("joujouj");
                     return response.json();
                 }
                 else {
