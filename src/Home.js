@@ -1,11 +1,8 @@
 import React, {Component} from "react";
-import Light from "./components/charts/Light";
-import WaterChart from "./components/charts/WaterChart";
-import Humidity from "./components/charts/Humidity";
-import Temperature from "./components/charts/Temperature";
 import TopNavigation from "./TopNavigation";
 import Livedata from './components/livedata/Livedata';
-import Chart from './components/charts/Chart';
+import ChartBox from "./components/charts/ChartBox";
+
 
 class Home extends Component {
 
@@ -34,27 +31,7 @@ class Home extends Component {
                 <div>
                   <Livedata/>
                 </div>
-                <div className="Container">
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <Light/>
-                        </div>
-                        <div className="col-sm-6">
-                            <WaterChart/>
-                        </div>
-                    </div>
-                </div>
-                <div className="Container">
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <Temperature/>
-                        </div>
-                        <div className="col-sm-6">
-                            <Humidity/>
-                        </div>
-                    </div>
-                </div>
-                <Chart/>
+                <ChartBox/>
             </div>
         );
     }
