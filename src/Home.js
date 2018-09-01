@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import app from "./base";
 import Light from "./components/charts/Light";
 import WaterChart from "./components/charts/WaterChart";
 import Humidity from "./components/charts/Humidity";
 import Temperature from "./components/charts/Temperature";
 import TopNavigation from "./TopNavigation";
+import Livedata from './components/livedata/Livedata';
+import Chart from './components/charts/Chart';
 
 class Home extends Component {
 
@@ -25,23 +26,15 @@ class Home extends Component {
             });
     }
 
-    logout = () => {
-        app.auth().signOut().then(() => {
-            localStorage.removeItem("UID");
-            localStorage.removeItem("email");
-            console.log("logged out successfully");
-        }, err => {
-            console.log("unable to logout", err);
-        });
-    }
-
     render() {
 
         return (
             <div>
                 <TopNavigation/>
                 <h1>Home</h1>
-                <button className="btn btn-default" onClick={this.logout}>Logout</button>
+                <div>
+                  <Livedata/>
+                </div>
                 <div className="Container">
                     <div className="row">
                         <div className="col-sm-6">
@@ -62,6 +55,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <Chart/>
             </div>
         );
     }
