@@ -40,6 +40,7 @@ class CarouselItem extends Component {
       ...attributes
     } = this.props;
 
+//eslint-disable-next-line
     itemId = parseInt(itemId);
 
     let classes = classNames(
@@ -87,4 +88,3 @@ CarouselItem.contextTypes = {
 };
 
 export default CarouselItem;
-export { CarouselItem as CarouselItem };

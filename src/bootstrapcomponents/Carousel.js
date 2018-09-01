@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {CarouselControl} from './CarouselControl.js';
-import {CarouselIndicator} from './CarouselIndicator.js';
-import {CarouselIndicators} from './CarouselIndicators.js';
+import CarouselControl from './CarouselControl.js';
+import CarouselIndicator from './CarouselIndicator.js';
+import CarouselIndicators from './CarouselIndicators.js';
 
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -170,4 +170,3 @@ Carousel.childContextTypes = {
 };
 
 export default Carousel;
-export { Carousel as Carousel };

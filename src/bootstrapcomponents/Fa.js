@@ -65,5 +65,4 @@ Fa.propTypes = {
 };
 
 
-export default Fa ;
-export { Fa as Fa };
+export default Fa;

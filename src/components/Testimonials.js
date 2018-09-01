@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import {Container} from '../bootstrapcomponents/Container.js';
-// import {Avatar} from '../bootstrapcomponents/Avatar.js';
+import Container from '../bootstrapcomponents/Container.js';
 
-import {Fa} from '../bootstrapcomponents/Fa.js';
+import Fa from '../bootstrapcomponents/Fa.js';
 
-import { Carousel} from '../bootstrapcomponents/Carousel.js';
-import { CarouselInner} from '../bootstrapcomponents/CarouselInner.js';
-import { CarouselItem} from '../bootstrapcomponents/CarouselItem.js';
+import Carousel from '../bootstrapcomponents/Carousel.js';
+import CarouselInner from '../bootstrapcomponents/CarouselInner.js';
+import CarouselItem from '../bootstrapcomponents/CarouselItem.js';
 import Palm from './pic/palm.jpeg';
 import Palm2 from './pic/palm2.jpeg';
 import Horse from './pic/horse.jpeg';
-// Avatar, Fa, Carousel, CarouselInner, CarouselItem, Testimonial
 
 class Testimonials extends Component {
 
@@ -46,7 +44,7 @@ class Testimonials extends Component {
 
                   <div className="mx-auto mb-4">
 
-                    <img src={Palm}/>
+                    <img src={Palm} alt=""/>
 
                   </div>
 
@@ -80,7 +78,7 @@ class Testimonials extends Component {
 
                   <div className="mx-auto mb-4">
 
-                    <img src={Palm2} className="rounded-circle img-fluid" alt="Second sample avatar image"/>
+                    <img src={Palm2} alt="" className="rounded-circle img-fluid"/>
 
                   </div>
 
@@ -114,7 +112,7 @@ class Testimonials extends Component {
 
                   <div className="mx-auto mb-4">
 
-                    <img src={Horse} className="rounded-circle img-fluid" alt="Third sample avatar image"/>
+                    <img src={Horse} alt="" className="rounded-circle img-fluid"/>
 
                   </div>
 

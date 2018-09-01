@@ -35,4 +35,3 @@ CarouselIndicators.defaultProps = {
 };
 
 export default CarouselIndicators;
-export { CarouselIndicators as CarouselIndicators };

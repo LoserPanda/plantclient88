@@ -55,4 +55,3 @@ CarouselInner.contextTypes = {
 };
 
 export default CarouselInner;
-export { CarouselInner as CarouselInner };

@@ -11,11 +11,8 @@ class Control extends Component {
       className,
       onClick,
       tag: Tag,
-      iconLeft,
-      iconRight,
       testimonial,
       multiItem,
-      ...attributes
     } = this.props;
 
     let text;

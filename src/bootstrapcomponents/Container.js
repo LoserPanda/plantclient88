@@ -36,4 +36,3 @@ Container.defaultProps = {
 };
 
 export default Container;
-export { Container as Container };
