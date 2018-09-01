@@ -9,7 +9,7 @@ class Light extends Component {
     state = {results: []};
 
     componentDidMount() {
-        fetch(url.url)
+        fetch(url.url + "/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {
                     return response.json();

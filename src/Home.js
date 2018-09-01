@@ -8,16 +8,7 @@ import Temperature from "./components/charts/Temperature";
 import Livedata from './components/livedata/Livedata';
 
 class Home extends Component {
-    /*
-        check = () => {
-            fetch('http://localhost:3001/users/' + localStorage.getItem("UID"))
-                .then((response) => {
-                    return response.json();
-                }).then(res => {
-                    console.log(JSON.stringify(res));
-                });
-        }
-*/
+    
     componentDidMount() {
         fetch('http://localhost:3001/users/', {
             method: "post",
