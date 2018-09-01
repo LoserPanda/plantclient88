@@ -7,6 +7,7 @@ import app from "./base";
 
 import Home from "./Home";
 import Auth from "./Auth";
+import NotFound from "./NotFound";
 
 class App extends Component {
   state = { loading: true, authenticated: false, user: null };
@@ -50,6 +51,7 @@ class App extends Component {
             authenticated={authenticated}
           />
           <Route exact path="/login" component={Auth} />
+          <Route component={NotFound}/>
         </div>
       </Router>
       </div>
