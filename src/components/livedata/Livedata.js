@@ -4,10 +4,10 @@ var socket = io('http://176.34.158.245:3005');
 
 class Livedata extends Component {
 
-      //  state = {livedata: []};
+        //state = {livedata: []};
 
        componentDidMount() {
-         let itse = this;
+        //  let itse = this;
          socket.emit('live', "client socket connected");
          socket.on('live', function (data) {
            console.log(data);
@@ -17,7 +17,7 @@ class Livedata extends Component {
 
        render() {
          return (
-                   <div><p>Livedata is: {this.state}</p>
+                   <div><p>Livedata is: {}</p>
                    <hr/>
                    </div>
                  );
