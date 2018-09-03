@@ -47,8 +47,9 @@ class Chart extends Component {
                     <LineSeries
                         style={{stroke: 'red', strokeWidth: 2}}
                         onNearestX={(datapoint, {index}) => {
-                            console.log(datapoint, {index});
-                            console.log(dataArr, "data");
+                            console.log(datapoint, "indeksi", {index}.index);
+                            var jou = datapoint.x + " " + datapoint.y;
+                            alert(jou);
                             this.setState({crosshairValues: dataArr.map(d => d[index])})
                             console.log("tama", this.state.crosshairValues);
                             }}
