@@ -8,17 +8,9 @@ class PlantList extends Component {
             <Plant key={plant.plantID} plant={plant}/>
         );
         return (
-            <table className="table-responsive table-hover">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div>
                 {plantlist}
-                </tbody>
-            </table>
+            </div>
         )
     }
 }

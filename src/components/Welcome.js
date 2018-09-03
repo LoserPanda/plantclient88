@@ -6,10 +6,11 @@ class Welcome extends Component {
         return (
             <div>
                 <h2>What happened if plants could speak?</h2>
-                <p>Well, they can, now! The Banana Project has finally made it possible to communicate with your plants.</p>
-                <p>With us your plants will thrive!</p>
-                <p>With us you'll never fail again!</p>
-                <p>The bridge between you and your plants!</p>
+                <hr/>
+                <h4>Well, they can, now! The Banana Project has finally made it possible to communicate with your plants.</h4>
+                <h4>With us your plants will thrive!</h4>
+                <h4>With us you'll never fail again!</h4>
+                <h4>The bridge between you and your plants!</h4>
             </div>
         );
     }

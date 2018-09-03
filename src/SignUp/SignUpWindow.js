@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SignUp from "../SignUp";
 import Header from "../components/Header";
-import Footer from "../bootstrapcomponents/Footer";
+import Footer from "../components/Footer";
 import SignUpInstructions from "./SignUpInstructions";
 
 class SignUpWindow extends Component {

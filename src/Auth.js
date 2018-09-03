@@ -4,10 +4,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
 import Hype from "./components/hype/Hype";
-import Team from "./components/Team";
+import Team from "./components/team/Team";
 import Contact from "./components/Contact";
 import Testimonials from "./components/Testimonials";
 import LoginSignupBox from "./LoginSignuoBox";
+import TeamMembers from "./components/team/TeamMembers";
 
 class Auth extends Component {
 
@@ -30,6 +31,7 @@ class Auth extends Component {
                     </div>
                     <Hype />
                     <Team />
+                    <TeamMembers/>
                     <Testimonials />
                     <Contact />
                     <div className="jumbotron">

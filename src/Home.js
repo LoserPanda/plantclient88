@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import TopNavigation from "./TopNavigation";
 import Livedata from './components/livedata/Livedata';
 import ChartBox from "./components/charts/ChartBox";
+import PlantBox from "./components/plants/PlantBox";
 
 class Home extends Component {
 
@@ -26,15 +27,26 @@ class Home extends Component {
         return (
             <div>
                 <TopNavigation/>
-                <div>
-                    <Livedata/>
-                </div>
-                <div>
-                    <ChartBox/>
+                <div className="container">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-4">
+                                {/*<Livedata/>*/}
+                            </div>
+                            <div className="col-sm-2">
+                            </div>
+                            <div className="col-sm-6">
+                                <PlantBox/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container">
+                        {/*<ChartBox/>*/}
+                    </div>
                 </div>
             </div>
         );
     }
-};
+}
 
 export default Home;
