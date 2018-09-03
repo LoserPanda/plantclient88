@@ -33,7 +33,7 @@ class Chart extends Component {
         });
 
         return (
-            <div>
+            <div className="jou">
                 <h2>{this.props.title}</h2>
                 <div id="datapoint">
                     <table>
