@@ -3,10 +3,12 @@ import url from '../../config/sensordataurl';
 
 class DataTable extends Component {
 
-  state = {results: []}
+  state = {
+    soilState: []
+  }
 
 componentDidMount(){
-  fetch(url.url + "/plants/lightAvg/" + localStorage.getItem("UID"))
+  fetch(url.url + "/plants/soilAvg/" + localStorage.getItem("UID"))
       .then(response => {
           if (response.ok) {
               return response.json();
@@ -16,8 +18,29 @@ componentDidMount(){
           }
       })
       .then(data => {
-          this.setState({results: data});
+          let soil = data[0].soilAvg;
+          this.setState({soilAvg: soil});
       });
+      this.watchLevels();
+}
+
+watchLevels = () => {
+  setInterval(() => {
+    const maxVal = Number(this.state.soilAvg + 10);
+    const minVal = Number(this.state.soilAvg - 10);
+    let soilLive = Number(this.props.soilmoisture);
+
+    if(soilLive >= maxVal){
+        let value1 = "Ugh, too wet for me!";
+        this.setState({soilState: value1});
+    } else if ((soilLive < maxVal) && (soilLive > minVal)) {
+        let value2 = "Im ok :)";
+        this.setState({soilState: value2});
+    } else {
+        let value3 = "Water me please!";
+        this.setState({soilState: value3});
+    }
+  }, 2000)
 }
 
 
@@ -53,7 +76,7 @@ componentDidMount(){
                     <tr className="warning">
                       <td>Soil Moisture</td>
                       <td>{this.props.soilmoisture}</td>
-                      <td>{this.state.results}</td>
+                      <td>{this.state.soilState}</td>
                     </tr>
                   </tbody>
                 </table>
