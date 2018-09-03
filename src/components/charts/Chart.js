@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries, MarkSeries, Voronoi} from 'react-vis';
 import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
+import Crosshair from "react-vis/es/plot/crosshair";
 
 class Chart extends Component {
 
 
-    state = {results: []};
+    state = {results: [], crosshairValues: []};
 
     componentDidMount() {
         fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
@@ -34,6 +35,7 @@ class Chart extends Component {
         return (
             <div>
                 <XYPlot
+                    onMouseLeave={() => this.setState({crosshairValues: []})}
                     xType="ordinal"
                     width={600}
                     height={300}
@@ -43,12 +45,16 @@ class Chart extends Component {
                     <XAxis title="Time"/>
                     <YAxis title="Light"/>
                     <LineSeries
-                        data={dataArr}
                         style={{stroke: 'red', strokeWidth: 2}}
-                        onNearestXY={(datapoint, {index}) => {
-                            console.log({index});
-                        }}
+                        onNearestX={(datapoint, {index}) => {
+                            console.log(datapoint, {index});
+                            console.log(dataArr, "data");
+                            this.setState({crosshairValues: dataArr.map(d => d[index])})
+                            console.log("tama", this.state.crosshairValues);
+                            }}
+                        data={dataArr}
                     />
+                    <Crosshair values={this.state.crosshairValues}/>
                 </XYPlot>
             </div>
         );
