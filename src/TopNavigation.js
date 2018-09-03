@@ -27,12 +27,12 @@ class TopNavigation extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavItem eventKey={1} href="/">Home</NavItem>
+                        {/*<NavItem eventKey={1} href="/">Home</NavItem>
                         <NavItem eventKey={2} href="/chartbox">ChartBox</NavItem>
                         <NavDropdown eventKey={3} title="Browse Data" id="basic-nav-dropdown">
                             <MenuItem eventKey={3.1} href="/">Show humidity</MenuItem>
                             <MenuItem eventKey={3.2} href="/">Show temperature</MenuItem>
-                        </NavDropdown>
+        </NavDropdown>*/}
                         <NavItem eventKey={4} onClick={this.logout} href="/">Logout</NavItem>
                     </Nav>
                 </Navbar.Collapse>

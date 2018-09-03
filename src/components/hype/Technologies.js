@@ -10,7 +10,7 @@ class Technologies extends Component {
             <div>
                 <h2>Plants</h2>
                 <hr/>
-                <img src={palmu} width="300" height="300" className="analytics" alt="joujou"/>
+                <img className="NikosImg" src={palmu} alt="Analytics"/>
                 <hr/>
                 <p>Hits from the bong</p>
                 <hr/>

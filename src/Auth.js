@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import LogIn from "./LogIn";
-import SignUp from "./SignUp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
@@ -16,28 +14,28 @@ class Auth extends Component {
     render() {
 
         return (
-            <div className="container">
-                <div className="jumbotron">
-                    <Header />
-                </div>
-                <div className="Container">
-                    <div className="row">
-                        <div className="col-sm-6">
-                            <Welcome />
-                        </div>
-                        <div className="col-sm-6">
-                            <LoginSignupBox/>
+                <div className="container">
+                    <div className="jumbotron">
+                        <Header />
+                    </div>
+                    <div className="Container">
+                        <div className="row">
+                            <div className="col-sm-6">
+                                <Welcome />
+                            </div>
+                            <div className="col-sm-6">
+                                <LoginSignupBox />
+                            </div>
                         </div>
                     </div>
+                    {/*<Hype />
+                    <Team />
+                    <Testimonials />
+                    <Contact />*/}
+                    <div className="jumbotron">
+                        <Footer />
+                    </div>
                 </div>
-                <Hype/>
-                <Team/>
-                <Testimonials/>
-                <Contact/>
-                <div className="jumbotron">
-                    <Footer />
-                </div>
-            </div>
         );
     }
 }
