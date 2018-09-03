@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries, MarkSeries, Voronoi} from 'react-vis';
 import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
-import Crosshair from "react-vis/es/plot/crosshair";
 
 class Chart extends Component {
 
 
-    state = {results: [], crosshairValues: []};
+    state = {results: []};
 
     componentDidMount() {
         fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
@@ -47,16 +46,13 @@ class Chart extends Component {
                     <LineSeries
                         style={{stroke: 'red', strokeWidth: 2}}
                         onNearestX={(datapoint, {index}) => {
-                            console.log(datapoint, "indeksi", {index}.index);
                             var jou = datapoint.x + " " + datapoint.y;
-                            alert(jou);
-                            this.setState({crosshairValues: dataArr.map(d => d[index])})
-                            console.log("tama", this.state.crosshairValues);
-                            }}
+                            document.getElementById("datapoint").innerText = jou;
+                        }}
                         data={dataArr}
                     />
-                    <Crosshair values={this.state.crosshairValues}/>
                 </XYPlot>
+                <div id="datapoint"></div>
             </div>
         );
     }
