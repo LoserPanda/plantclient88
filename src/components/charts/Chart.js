@@ -9,7 +9,7 @@ class Chart extends Component {
     state = {results: []};
 
     componentDidMount() {
-        fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
+        fetch(url.url + "/sensordata/hour/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -33,6 +33,29 @@ class Chart extends Component {
 
         return (
             <div>
+                <h2>Light</h2>
+                <div id="datapoint">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                Time
+                            </td>
+                            <td id="time">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Light
+                            </td>
+                            <td id="light">
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <XYPlot
                     onMouseLeave={() => this.setState({crosshairValues: []})}
                     xType="ordinal"
@@ -46,13 +69,12 @@ class Chart extends Component {
                     <LineSeries
                         style={{stroke: 'red', strokeWidth: 2}}
                         onNearestX={(datapoint, {index}) => {
-                            var jou = datapoint.x + " " + datapoint.y;
-                            document.getElementById("datapoint").innerText = jou;
+                            document.getElementById("time").innerText = datapoint.x;
+                            document.getElementById("light").innerText = datapoint.y;
                         }}
                         data={dataArr}
                     />
                 </XYPlot>
-                <div id="datapoint"></div>
             </div>
         );
     }
