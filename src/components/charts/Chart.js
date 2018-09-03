@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries, MarkSeries, Voronoi} from 'react-vis';
 import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
+import Crosshair from "react-vis/es/plot/crosshair";
 
 class Chart extends Component {
 
 
-    state = {results: []};
+    state = {results: [], crosshairValues: []};
 
     componentDidMount() {
         fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
@@ -27,13 +28,14 @@ class Chart extends Component {
         const dataArr = this.state.results.map((d) => {
             return {
                 x: d.time,
-                y: parseFloat(d.soilmoisture)
+                y: parseFloat(d.light)
             }
         });
 
         return (
             <div>
                 <XYPlot
+                    onMouseLeave={() => this.setState({crosshairValues: []})}
                     xType="ordinal"
                     width={600}
                     height={300}
@@ -41,10 +43,18 @@ class Chart extends Component {
                     <VerticalGridLines/>
                     <HorizontalGridLines/>
                     <XAxis title="Time"/>
-                    <YAxis title="Soilmoisture"/>
+                    <YAxis title="Light"/>
                     <LineSeries
+                        style={{stroke: 'red', strokeWidth: 2}}
+                        onNearestX={(datapoint, {index}) => {
+                            console.log(datapoint, {index});
+                            console.log(dataArr, "data");
+                            this.setState({crosshairValues: dataArr.map(d => d[index])})
+                            console.log("tama", this.state.crosshairValues);
+                            }}
                         data={dataArr}
-                        style={{stroke: 'red', strokeWidth: 2}}/>
+                    />
+                    <Crosshair values={this.state.crosshairValues}/>
                 </XYPlot>
             </div>
         );

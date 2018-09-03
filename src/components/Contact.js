@@ -5,8 +5,8 @@ class Contact extends Component {
     render() {
         return (
 
-            <div>
-                <h1>Otappa yhteyttä</h1>
+            <div className="minHeight">
+                <h1>Contact us</h1>
 
                 <h2> EMAIL </h2>
             </div>
