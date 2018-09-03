@@ -5,7 +5,7 @@ import ChartBox from "./components/charts/ChartBox";
 import PlantBox from "./components/plants/PlantBox";
 
 class Home extends Component {
-    
+
     componentDidMount() {
         fetch('http://localhost:3001/users/', {
             method: "post",
@@ -28,7 +28,7 @@ class Home extends Component {
             <div>
                 <TopNavigation/>
                 <div>
-                  {/*<Livedata/>*/}
+                  {<Livedata/>}
                 </div>
                 <ChartBox/>
                 {/*<PlantBox/>*/}
