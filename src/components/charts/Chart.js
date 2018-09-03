@@ -27,7 +27,7 @@ class Chart extends Component {
         const dataArr = this.state.results.map((d) => {
             return {
                 x: d.time,
-                y: parseFloat(d.soilmoisture)
+                y: parseFloat(d.light)
             }
         });
 
@@ -41,10 +41,14 @@ class Chart extends Component {
                     <VerticalGridLines/>
                     <HorizontalGridLines/>
                     <XAxis title="Time"/>
-                    <YAxis title="Soilmoisture"/>
+                    <YAxis title="Light"/>
                     <LineSeries
                         data={dataArr}
-                        style={{stroke: 'red', strokeWidth: 2}}/>
+                        style={{stroke: 'red', strokeWidth: 2}}
+                        onNearestXY={(datapoint, event) => {
+                            console.log(event);
+                        }}
+                    />
                 </XYPlot>
             </div>
         );

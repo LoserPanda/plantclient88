@@ -28,7 +28,7 @@ class Home extends Component {
             <div>
                 <TopNavigation/>
                 <div>
-                  <Livedata/>
+                  {/*<Livedata/>*/}
                 </div>
                 <ChartBox/>
                 {/*<PlantBox/>*/}
