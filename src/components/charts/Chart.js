@@ -9,7 +9,8 @@ class Chart extends Component {
     state = {results: []};
 
     componentDidMount() {
-        fetch(url.url + "/sensordata/hour/byuserid/" + localStorage.getItem("UID"))
+        console.log(this.props.time, "johuighniohujk");
+        fetch(url.url + "/sensordata/" + this.props.time + "/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -33,7 +34,7 @@ class Chart extends Component {
 
         return (
             <div>
-                <h2>Light</h2>
+                <h2>{this.props.title}</h2>
                 <div id="datapoint">
                     <table>
                         <tbody>
@@ -41,15 +42,15 @@ class Chart extends Component {
                             <td>
                                 Time
                             </td>
-                            <td id="time">
+                            <td id={this.props.title + "time"}>
 
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Light
+                                {this.props.title}
                             </td>
-                            <td id="light">
+                            <td id={this.props.title}>
 
                             </td>
                         </tr>
@@ -57,20 +58,22 @@ class Chart extends Component {
                     </table>
                 </div>
                 <XYPlot
-                    onMouseLeave={() => this.setState({crosshairValues: []})}
-                    xType="ordinal"
+                    onMouseLeave={() => {
+                        document.getElementById(this.props.title + "time").innerText = null;
+                        document.getElementById(this.props.title).innerText = null;
+                    }} xType="ordinal"
                     width={600}
                     height={300}
                     yDomain={[0, 100]}>
                     <VerticalGridLines/>
                     <HorizontalGridLines/>
                     <XAxis title="Time"/>
-                    <YAxis title="Light"/>
+                    <YAxis title={this.props.title}/>
                     <LineSeries
-                        style={{stroke: 'red', strokeWidth: 2}}
+                        style={{stroke: this.props.color, strokeWidth: 2}}
                         onNearestX={(datapoint, {index}) => {
-                            document.getElementById("time").innerText = datapoint.x;
-                            document.getElementById("light").innerText = datapoint.y;
+                            document.getElementById(this.props.title + "time").innerText = datapoint.x;
+                            document.getElementById(this.props.title).innerText = datapoint.y;
                         }}
                         data={dataArr}
                     />
@@ -79,5 +82,6 @@ class Chart extends Component {
         );
     }
 }
+
 
 export default Chart;

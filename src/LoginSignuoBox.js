@@ -24,14 +24,14 @@ class LoginSignupBox extends Component {
         return (
             <div>
                 <LogIn />
-                {/*
-                <button className="btn btn-default" onClick={this._onButtonClick}>Or Sign up</button>
-                {this.state.showComponent ?
-                    <SignUp /> :
-                    null
-                }
+
+                {/*<button className="btn btn-default" onClick={this._onButtonClick}>Or Sign up</button>*/}
+                {/*{this.state.showComponent ?*/}
+                    {/*<SignUp /> :*/}
+                    {/*null*/}
+                {/*}*/}
                 
-                <SignUp/>*/}
+                <SignUp/>
             </div>
         );
     }

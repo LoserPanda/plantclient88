@@ -28,10 +28,10 @@ class Auth extends Component {
                             </div>
                         </div>
                     </div>
-                    {/*<Hype />
+                    <Hype />
                     <Team />
                     <Testimonials />
-                    <Contact />*/}
+                    <Contact />
                     <div className="jumbotron">
                         <Footer />
                     </div>
