@@ -2,15 +2,14 @@ import React, {Component} from 'react';
 import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries, MarkSeries, Voronoi} from 'react-vis';
 import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
-import Crosshair from "react-vis/es/plot/crosshair";
 
 class Chart extends Component {
 
 
-    state = {results: [], crosshairValues: []};
+    state = {results: []};
 
     componentDidMount() {
-        fetch(url.url + "/sensordata/byuserid/" + localStorage.getItem("UID"))
+        fetch(url.url + "/sensordata/hour/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -34,6 +33,29 @@ class Chart extends Component {
 
         return (
             <div>
+                <h2>Light</h2>
+                <div id="datapoint">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                Time
+                            </td>
+                            <td id="time">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Light
+                            </td>
+                            <td id="light">
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <XYPlot
                     onMouseLeave={() => this.setState({crosshairValues: []})}
                     xType="ordinal"
@@ -47,14 +69,11 @@ class Chart extends Component {
                     <LineSeries
                         style={{stroke: 'red', strokeWidth: 2}}
                         onNearestX={(datapoint, {index}) => {
-                            console.log(datapoint, {index});
-                            console.log(dataArr, "data");
-                            this.setState({crosshairValues: dataArr.map(d => d[index])})
-                            console.log("tama", this.state.crosshairValues);
-                            }}
+                            document.getElementById("time").innerText = datapoint.x;
+                            document.getElementById("light").innerText = datapoint.y;
+                        }}
                         data={dataArr}
                     />
-                    <Crosshair values={this.state.crosshairValues}/>
                 </XYPlot>
             </div>
         );
