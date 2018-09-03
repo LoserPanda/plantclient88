@@ -45,8 +45,8 @@ class Chart extends Component {
                     <LineSeries
                         data={dataArr}
                         style={{stroke: 'red', strokeWidth: 2}}
-                        onNearestXY={(datapoint, event) => {
-                            console.log(event);
+                        onNearestXY={(datapoint, {index}) => {
+                            console.log({index});
                         }}
                     />
                 </XYPlot>
