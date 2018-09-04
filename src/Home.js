@@ -31,17 +31,17 @@ class Home extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-4">
-                                {/*<Livedata/>*/}
+                                <Livedata/>
                             </div>
                             <div className="col-sm-2">
                             </div>
                             <div className="col-sm-6">
-                                <PlantBox/>
+                                {/*<PlantBox/>*/}
                             </div>
                         </div>
                     </div>
                     <div className="container">
-                        {/*<ChartBox/>*/}
+                        <ChartBox/>
                     </div>
                 </div>
             </div>

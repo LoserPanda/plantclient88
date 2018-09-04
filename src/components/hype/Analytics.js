@@ -17,9 +17,6 @@ class Analytics extends Component {
                     </div>
                 </div>
                 <hr/>
-                <p>Interactive charts</p>
-                <hr/>
-
             </div>
         )
     }

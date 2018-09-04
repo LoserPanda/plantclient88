@@ -10,9 +10,12 @@ class Sensors extends Component {
             <div>
                 <h2>Sensors</h2>
                 <hr/>
-                <img className="NikosImg" src={circuit} alt="Sensors"/>
-                <hr/>
-                <p>Sensor your plant with the latest technologies</p>
+                <div className="imgContainer">
+                    <img className="NikosImg" src={circuit} alt="Sensors"/>
+                    <div className="overlay">
+                        <div className="text">Sensors</div>
+                    </div>
+                </div>
                 <hr/>
             </div>
         )
