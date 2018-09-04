@@ -25,7 +25,7 @@ class DataTable extends Component {
                 }
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 let hum = data[0].humidityAvg;
                 let soil = data[0].soilAvg;
                 let light = data[0].lightAvg;
