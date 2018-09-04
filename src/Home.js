@@ -36,7 +36,7 @@ class Home extends Component {
                             <div className="col-sm-2">
                             </div>
                             <div className="col-sm-6">
-                                {/*<PlantBox/>*/}
+                                <PlantBox/>
                             </div>
                         </div>
                     </div>

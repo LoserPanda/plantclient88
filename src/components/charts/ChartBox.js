@@ -15,7 +15,7 @@ class ChartBox extends Component {
     };
 
     componentWillMount() {
-        this.setState({time: MONTH});
+        this.setState({time: HOUR});
     }
 
     changeToHour = () => {

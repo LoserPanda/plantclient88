@@ -103,14 +103,14 @@ input[type=email], input[type=password], input[type=text] {
     height: 50vh;
 }
 
-body {
-    background-image: url("http://2.bp.blogspot.com/-hGiMkSdNa7Q/UObJpuC-YPI/AAAAAAAANo4/EuA5NlhqPME/s1600/banana-tree.jpg");
-}
+/*body {*/
+    /*background-image: url("http://2.bp.blogspot.com/-hGiMkSdNa7Q/UObJpuC-YPI/AAAAAAAANo4/EuA5NlhqPME/s1600/banana-tree.jpg");*/
+/*}*/
 
-.container {
-    background-color: rgba(255, 255, 255, 1);
-    padding: 0;
-}
+/*.container {*/
+    /*background-color: rgba(255, 255, 255, 1);*/
+    /*padding: 0;*/
+/*}*/
 
 .chart-info-left {
     text-align: right;

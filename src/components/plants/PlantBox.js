@@ -7,7 +7,7 @@ class PlantBox extends Component {
 
     componentDidMount() {
         let self = this;
-        fetch(url.url + '/plants/' + localStorage.getItem('UID'))
+        fetch(url.url + '/plants/getphoto/' + localStorage.getItem('UID'))
             .then((resp) => {
                 return resp.json();
             })

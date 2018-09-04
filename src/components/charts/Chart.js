@@ -23,6 +23,11 @@ class Chart extends Component {
             });
     }
 
+    handleTime = (time) => {
+        let heatOfTheMoment = new Date(time);
+        return heatOfTheMoment.toLocaleString();
+    };
+
     render() {
         const query = this.props.query;
         var dataArr;
@@ -96,7 +101,7 @@ class Chart extends Component {
                         <LineSeries
                             style={{stroke: this.props.color, strokeWidth: 2}}
                             onNearestX={(datapoint, {index}) => {
-                                document.getElementById(this.props.title + "time").innerText = datapoint.x;
+                                document.getElementById(this.props.title + "time").innerText = this.handleTime(datapoint.x);
                                 document.getElementById(this.props.title).innerText = datapoint.y;
                             }}
                             data={dataArr}
