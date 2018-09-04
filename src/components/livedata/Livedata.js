@@ -4,7 +4,6 @@ import DataTable from './DataTable'
 
 var socket = io('http://176.34.158.245:3005');
 
-
 class Livedata extends Component {
 
     state = {
