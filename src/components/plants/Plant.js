@@ -8,7 +8,7 @@ class Plant extends Component {
                 <div className="container">
                     <div className="row">
                         <div>
-                            <h1>{this.props.plant.name}</h1>
+                            <h1>{this.props.plant.name}'s Care Regime</h1>
                         </div>
                         <div>
                             <img className='imageResizer' alt={'Image of ' + this.props.plant.name}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import member from './member.jpg';
-
+import johannes from './johannes.jpg';
+import niko from './niko.jpg';
+import saana from './saana.jpg';
 
 class TeamMembers extends Component {
 
@@ -15,7 +16,7 @@ class TeamMembers extends Component {
                             <h3>Johannes</h3>
                             <hr/>
                             <div className="imgContainer">
-                                <img className="NikosImg" src={member} alt="Analytics"/>
+                                <img className="NikosImg" src={johannes} alt="Analytics"/>
                                 <div className="overlay">
                                     <div className="text">Johannetics</div>
                                 </div>
@@ -28,7 +29,7 @@ class TeamMembers extends Component {
                             <h3>Niko</h3>
                             <hr/>
                             <div className="imgContainer">
-                                <img className="NikosImg" src={member} alt="Analytics"/>
+                                <img className="NikosImg" src={niko} alt="Analytics"/>
                                 <div className="overlay">
                                     <div className="text">Nikotics</div>
                                 </div>
@@ -41,7 +42,7 @@ class TeamMembers extends Component {
                             <h3>Saana</h3>
                             <hr/>
                             <div className="imgContainer">
-                                <img className="NikosImg" src={member} alt="Analytics"/>
+                                <img className="NikosImg" src={saana} alt="Analytics"/>
                                 <div className="overlay">
                                     <div className="text">Saanatics</div>
                                 </div>

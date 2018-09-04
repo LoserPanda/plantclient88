@@ -7,7 +7,6 @@ class ChartList extends Component {
 
         return (
             <div>
-                <h2>Chart List</h2>
                 <div className="Container">
                     <div className="row">
                         <div className="col-sm-6">

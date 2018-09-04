@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import TopNavigation from "./TopNavigation";
 import Livedata from './components/livedata/Livedata';
 import ChartBox from "./components/charts/ChartBox";
-import PlantBox from "./components/plants/PlantBox";
+import CareRegime from "./components/plants/CareRegime";
 
 class Home extends Component {
 
@@ -30,13 +30,13 @@ class Home extends Component {
                 <div className="container">
                     <div className="container">
                         <div className="row">
-                            <div className="col-sm-4">
+                            <div className="col-sm-6">
                                 <Livedata/>
                             </div>
-                            <div className="col-sm-2">
-                            </div>
+                            {/*<div className="col-sm-2">*/}
+                            {/*</div>*/}
                             <div className="col-sm-6">
-                                <PlantBox/>
+                                <CareRegime/>
                             </div>
                         </div>
                     </div>

@@ -46,13 +46,12 @@ class ChartBox extends Component {
 
         return (
             <div>
-                <h2>Chart Box</h2>
-                <ChartList time={this.state.time}/>
+                <h2>Browse Data</h2>
                 <button onClick={this.changeToHour}>HOUR</button>
                 <button onClick={this.changeToDay}>DAY</button>
                 <button onClick={this.changeToMonth}>MONTH</button>
                 <button onClick={this.changeToYear}>YEAR</button>
-
+                <ChartList time={this.state.time}/>
             </div>
         );
     }

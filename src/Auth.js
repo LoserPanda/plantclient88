@@ -41,9 +41,9 @@ class Auth extends Component {
                 {/*<Testimonials />*/}
                 <div className="minHeight">
                     <Contact/>
-                    <div className="jumbotron">
-                        <Footer/>
-                    </div>
+                </div>
+                <div className="jumbotron">
+                    <Footer/>
                 </div>
             </div>
         );
