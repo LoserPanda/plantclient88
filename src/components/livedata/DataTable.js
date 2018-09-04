@@ -4,7 +4,7 @@ import LightScale, {lightCalibration} from './sensorCalibration/LightScale'
 import HumidityCalibration, {humidityCalibration} from './sensorCalibration/HumidityCalibration'
 import TemperatureCalibration, {temperatureCalibration} from './sensorCalibration/TemperatureCalibration'
 import SoilmoistureCalibration, {soilmoistureCalibration} from './sensorCalibration/SoilmoistureCalibration'
-
+// import IconCalibration, {lightIconCalibration, humidityIconCalibration, tempetatureIconCalibration, soilIconCalibration} from './sensorCalibration/IconCalibration'
 
 class DataTable extends Component {
 
@@ -63,7 +63,6 @@ class DataTable extends Component {
               this.setState({lightState: "It's night again.. dull.."});
             }
 
-
         }, 2000)
     };
 
@@ -71,10 +70,7 @@ class DataTable extends Component {
         setInterval(() => {
 
             const optimum = this.state.humidityAvg;
-            console.log("OPTIMI",optimum);
             let humLive = humidityCalibration(Number(this.props.humidity));
-            console.log("HUMLIVE",humLive);
-            console.log("perus", this.props.humidity)
 
             if (humLive == optimum) {
                 this.setState({humidityState: "Just breezing!"});
@@ -126,6 +122,109 @@ class DataTable extends Component {
 
 
     render() {
+      var lightAmount;
+      if (lightCalibration(Number(this.props.light)) === 3) {
+          lightAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-certificate lighticon"></span>
+                  <span className="glyphicon glyphicon-certificate lighticon"></span>
+                  <span className="glyphicon glyphicon-certificate lighticon"></span>
+              </div>)
+      } else if (lightCalibration(Number(this.props.light)) === 2) {
+          lightAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-certificate lighticon"></span>
+                  <span className="glyphicon glyphicon-certificate lighticon"></span>
+              </div>)
+      } else if (lightCalibration(Number(this.props.light)) === 1) {
+          lightAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-certificate lighticon"></span>
+              </div>)
+      } else {
+        lightAmount = (
+            <div>
+                <span className="glyphicon glyphicon-certificate lighticonblack"></span>
+            </div>)
+      }
+
+      var humidityAmount;
+      if (humidityCalibration(Number(this.props.humidity)) === 3) {
+          humidityAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-cloud humidityicon"></span>
+                  <span className="glyphicon glyphicon-cloud humidityicon"></span>
+                  <span className="glyphicon glyphicon-cloud humidityicon"></span>
+              </div>)
+      } else if (humidityCalibration(Number(this.props.humidity)) === 2) {
+          humidityAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-cloud humidityicon"></span>
+                  <span className="glyphicon glyphicon-cloud humidityicon"></span>
+              </div>)
+      } else if (humidityCalibration(Number(this.props.humidity)) === 1) {
+          humidityAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-cloud humidityicon"></span>
+              </div>)
+      } else {
+        humidityAmount = (
+            <div>
+                <span className="glyphicon glyphicon-cloud lighticonblack"></span>
+            </div>)
+      }
+
+      var temperatureAmount;
+      if (temperatureCalibration(Number(this.props.temperature)) === 3) {
+          temperatureAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-fire temperatureicon"></span>
+                  <span className="glyphicon glyphicon-fire temperatureicon"></span>
+                  <span className="glyphicon glyphicon-fire temperatureicon"></span>
+              </div>)
+      } else if (temperatureCalibration(Number(this.props.temperature)) === 2) {
+          temperatureAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-fire temperatureicon"></span>
+                  <span className="glyphicon glyphicon-fire temperatureicon"></span>
+              </div>)
+      } else if (temperatureCalibration(Number(this.props.temperature)) === 1) {
+          temperatureAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-fire temperatureicon"></span>
+              </div>)
+      } else {
+        temperatureAmount = (
+            <div>
+                <span className="glyphicon glyphicon-fire lighticonblack"></span>
+            </div>)
+      }
+
+      var soilmoistureAmount;
+      if (soilmoistureCalibration(Number(this.props.soilmoisture)) === 3) {
+          soilmoistureAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
+                  <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
+                  <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
+              </div>)
+      } else if (soilmoistureCalibration(Number(this.props.soilmoisture)) === 2) {
+          soilmoistureAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
+                  <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
+              </div>)
+      } else if (soilmoistureCalibration(Number(this.props.soilmoisture)) === 1) {
+          soilmoistureAmount = (
+              <div>
+                  <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
+              </div>)
+      } else {
+        soilmoistureAmount = (
+            <div>
+                <span className="glyphicon glyphicon-tint lighticonblack"></span>
+            </div>)
+      }
         return (
             <div className="table-responsive">
                 <h2>Live Data Feed</h2>
@@ -135,7 +234,7 @@ class DataTable extends Component {
                       <tr>
                           <td>Light {this.props.light} %</td>
                           <td>Humidity {this.props.humidity} %</td>
-                          <td>Temperature {this.props.temperature} C´</td>
+                          <td>Temperature {this.props.temperature} C</td>
                           <td>Soil {this.props.soilmoisture}</td>
                       </tr>
                     </tbody>
@@ -151,22 +250,22 @@ class DataTable extends Component {
                     <tbody>
                     <tr className="warning">
                         <td>Light</td>
-                        <td>{this.props.light}</td>
+                        <td>{lightAmount}</td>
                         <td>{this.state.lightState}</td>
                     </tr>
                     <tr className="info">
                         <td>Humidity</td>
-                        <td>{this.props.humidity}</td>
+                        <td>{humidityAmount}</td>
                         <td>{this.state.humidityState}</td>
                     </tr>
                     <tr className="danger">
                         <td>Temperature</td>
-                        <td>{this.props.temperature}</td>
+                        <td>{temperatureAmount}</td>
                         <td>{this.state.temperatureState}</td>
                     </tr>
                     <tr className="success">
                         <td>Soil Moisture</td>
-                        <td>{this.props.soilmoisture}</td>
+                        <td>{soilmoistureAmount}</td>
                         <td>{this.state.soilState}</td>
                     </tr>
                     </tbody>
