@@ -25,12 +25,36 @@ class Chart extends Component {
     }
 
     render() {
-        const dataArr = this.state.results.map((d) => {
-            return {
-                x: d.time,
-                y: parseFloat(d.light)
-            }
-        });
+        const query = this.props.query;
+        if (query === "light") {
+            var dataArr = this.state.results.map((d) => {
+                return {
+                    x: d.time,
+                    y: parseFloat(d.light)
+                }
+            });
+        } else if (query === "humidity") {
+            var dataArr = this.state.results.map((d) => {
+                return {
+                    x: d.time,
+                    y: parseFloat(d.humidity)
+                }
+            });
+        } else if (query === "soilmoisture") {
+            var dataArr = this.state.results.map((d) => {
+                return {
+                    x: d.time,
+                    y: parseFloat(d.soilmoisture)
+                }
+            });
+        } else if (query === "temperature") {
+            var dataArr = this.state.results.map((d) => {
+                return {
+                    x: d.time,
+                    y: parseFloat(d.temperature)
+                }
+            });
+        }
 
         return (
             <div className="jou">

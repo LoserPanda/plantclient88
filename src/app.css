@@ -106,3 +106,11 @@ input[type=email], input[type=password], input[type=text] {
 .testimg {
     height: 50vh;
 }
+
+body {
+    background-image: url("http://2.bp.blogspot.com/-hGiMkSdNa7Q/UObJpuC-YPI/AAAAAAAANo4/EuA5NlhqPME/s1600/banana-tree.jpg");
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 1);
+}
