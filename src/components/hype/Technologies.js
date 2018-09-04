@@ -10,9 +10,12 @@ class Technologies extends Component {
             <div>
                 <h2>Plants</h2>
                 <hr/>
-                <img className="NikosImg" src={palmu} alt="Analytics"/>
-                <hr/>
-                <p>Hits from the bong</p>
+                <div className="imgContainer">
+                    <img className="NikosImg" src={palmu} alt="Plants"/>
+                    <div className="overlay">
+                        <div className="text">Plants</div>
+                    </div>
+                </div>
                 <hr/>
             </div>
         )

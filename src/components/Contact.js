@@ -5,7 +5,7 @@ class Contact extends Component {
     render() {
         return (
 
-            <div className="minHeight">
+            <div>
                 <h1>Contact us</h1>
 
                 <h2> EMAIL </h2>

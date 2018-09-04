@@ -27,14 +27,26 @@ class Home extends Component {
         return (
             <div>
                 <TopNavigation/>
-                <div>
-                  {<Livedata/>}
+                <div className="container">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <Livedata/>
+                            </div>
+                            <div className="col-sm-2">
+                            </div>
+                            <div className="col-sm-6">
+                                {/*<PlantBox/>*/}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container">
+                        <ChartBox/>
+                    </div>
                 </div>
-                <ChartBox/>
-                {/*<PlantBox/>*/}
             </div>
         );
     }
-};
+}
 
 export default Home;

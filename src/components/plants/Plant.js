@@ -4,11 +4,21 @@ class Plant extends Component {
 
     render() {
         return (
-            <tr>
-                <td>{this.props.plant.name}</td>
-                <td><img className='imageResizer' alt={'Image of ' + this.props.plant.name} src={this.props.plant.photolink}/></td>
-            </tr>
+            <div>
+                <div className="container">
+                    <div className="row">
+                        <div>
+                            <h1>{this.props.plant.name}</h1>
+                        </div>
+                        <div>
+                            <img className='imageResizer' alt={'Image of ' + this.props.plant.name}
+                                 src={this.props.plant.photolink}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
+
     }
 }
 

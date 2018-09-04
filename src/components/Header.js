@@ -5,7 +5,7 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <h1>The Banana Project Header</h1>
+                <h1>KasvIO</h1>
             </div>
         );
     }

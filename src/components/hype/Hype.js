@@ -8,7 +8,7 @@ class Hype extends Component {
 
     render() {
         return (
-            <div className="minHeight">
+            <div>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-4">
