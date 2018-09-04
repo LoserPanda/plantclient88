@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries, MarkSeries, Voronoi} from 'react-vis';
+import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries } from 'react-vis';
 import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
 
 class Chart extends Component {
-
 
     state = {results: []};
 
@@ -26,29 +25,30 @@ class Chart extends Component {
 
     render() {
         const query = this.props.query;
+        var dataArr;
         if (query === "light") {
-            var dataArr = this.state.results.map((d) => {
+            dataArr = this.state.results.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.light)
                 }
             });
         } else if (query === "humidity") {
-            var dataArr = this.state.results.map((d) => {
+            dataArr = this.state.results.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.humidity)
                 }
             });
         } else if (query === "soilmoisture") {
-            var dataArr = this.state.results.map((d) => {
+            dataArr = this.state.results.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.soilmoisture)
                 }
             });
         } else if (query === "temperature") {
-            var dataArr = this.state.results.map((d) => {
+            dataArr = this.state.results.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.temperature)
@@ -57,52 +57,52 @@ class Chart extends Component {
         }
 
         return (
-            <div className="jou">
-                <h2>{this.props.title}</h2>
-                <div id="datapoint">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td>
-                                Time
-                            </td>
-                            <td id={this.props.title + "time"}>
+            <div className="table-responsive">
+                    <h2>{this.props.title}</h2>
+                    <div id="datapoint">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td className="chart-info-left">
+                                    Time
+                                </td>
+                                <td className="chart-info-right" id={this.props.title + "time"}>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {this.props.title}
-                            </td>
-                            <td id={this.props.title}>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="chart-info-left">
+                                    {this.props.title}
+                                </td>
+                                <td className="chart-info-right" id={this.props.title}>
 
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <XYPlot
+                        onMouseLeave={() => {
+                            document.getElementById(this.props.title + "time").innerText = null;
+                            document.getElementById(this.props.title).innerText = null;
+                        }} xType="ordinal"
+                        width={400}
+                        height={200}
+                        yDomain={[0, 100]}>
+                        <VerticalGridLines/>
+                        <HorizontalGridLines/>
+                        {/*<XAxis title="Time"/>*/}
+                        <YAxis title={this.props.title}/>
+                        <LineSeries
+                            style={{stroke: this.props.color, strokeWidth: 2}}
+                            onNearestX={(datapoint, {index}) => {
+                                document.getElementById(this.props.title + "time").innerText = datapoint.x;
+                                document.getElementById(this.props.title).innerText = datapoint.y;
+                            }}
+                            data={dataArr}
+                        />
+                    </XYPlot>
                 </div>
-                <XYPlot
-                    onMouseLeave={() => {
-                        document.getElementById(this.props.title + "time").innerText = null;
-                        document.getElementById(this.props.title).innerText = null;
-                    }} xType="ordinal"
-                    width={600}
-                    height={300}
-                    yDomain={[0, 100]}>
-                    <VerticalGridLines/>
-                    <HorizontalGridLines/>
-                    <XAxis title="Time"/>
-                    <YAxis title={this.props.title}/>
-                    <LineSeries
-                        style={{stroke: this.props.color, strokeWidth: 2}}
-                        onNearestX={(datapoint, {index}) => {
-                            document.getElementById(this.props.title + "time").innerText = datapoint.x;
-                            document.getElementById(this.props.title).innerText = datapoint.y;
-                        }}
-                        data={dataArr}
-                    />
-                </XYPlot>
-            </div>
         );
     }
 }
