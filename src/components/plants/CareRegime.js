@@ -89,20 +89,20 @@ class PlantBox extends Component {
         }
 
         var soilmoistureAmount;
-        if (this.state.plant.temperatureAvg === 3) {
+        if (this.state.plant.soilAvg === 3) {
             soilmoistureAmount = (
                 <div>
                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                 </div>)
-        } else if (this.state.plant.temperatureAvg === 2) {
+        } else if (this.state.plant.soilAvg === 2) {
             soilmoistureAmount = (
                 <div>
                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                 </div>)
-        } else if (this.state.plant.temperatureAvg === 1) {
+        } else if (this.state.plant.soilAvg === 1) {
             soilmoistureAmount = (
                 <div>
                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
