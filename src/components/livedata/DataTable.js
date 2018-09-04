@@ -1,5 +1,10 @@
 import React, {Component} from 'react'
 import url from '../../config/sensordataurl';
+import LightScale, {lightCalibration} from './sensorCalibration/LightScale'
+import HumidityCalibration, {humidityCalibration} from './sensorCalibration/HumidityCalibration'
+import TemperatureCalibration, {temperatureCalibration} from './sensorCalibration/TemperatureCalibration'
+import SoilmoistureCalibration, {soilmoistureCalibration} from './sensorCalibration/SoilmoistureCalibration'
+
 
 class DataTable extends Component {
 
@@ -8,6 +13,7 @@ class DataTable extends Component {
         lightState: [],
         humidityState: [],
         temperatureState: [],
+
         soilAvg: [],
         lightAvg: [],
         humidityAvg: [],
@@ -44,40 +50,40 @@ class DataTable extends Component {
 
     lightLevels = () => {
         setInterval(() => {
+            const optimum = this.state.lightAvg; // 3
+            let lightLive = lightCalibration(Number(this.props.light)); // vaihteleva
 
-            const maxVal = Number(this.state.lightAvg + 20);
-            const minVal = Number(this.state.lightAvg - 20);
-            let lightLive = Number(this.props.light);
-
-            if (lightLive >= maxVal) {
-                let value1 = "Ugh, too SUNNY for me!";
-                this.setState({lightState: value1});
-            } else if ((lightLive < maxVal) && (lightLive > minVal)) {
-                let value2 = "Im ok :)";
-                this.setState({lightState: value2});
+            if (lightLive == optimum){
+              this.setState({lightState: "Yes, this is perfect"});
+            } else if (lightLive < optimum && lightLive > 0){
+              this.setState({lightState: "Oh it's too shady now.."});
+            } else if (lightLive > optimum){
+              this.setState({lightState: "Gosh it's so SUNNY"});
             } else {
-                let value3 = "It's propably night again..!";
-                this.setState({lightState: value3});
+              this.setState({lightState: "It's night again.. dull.."});
             }
+
+
         }, 2000)
     };
 
     humLevels = () => {
         setInterval(() => {
 
-            const maxVal = Number(this.state.humidityAvg + 15);
-            const minVal = Number(this.state.humidityAvg - 15);
-            let humLive = Number(this.props.humidity);
+            const optimum = this.state.humidityAvg;
+            console.log("OPTIMI",optimum);
+            let humLive = humidityCalibration(Number(this.props.humidity));
+            console.log("HUMLIVE",humLive);
+            console.log("perus", this.props.humidity)
 
-            if (humLive >= maxVal) {
-                let value1 = "Ugh, too TROPICAL for me!";
-                this.setState({humidityState: value1});
-            } else if (humLive < maxVal && humLive >= minVal) {
-                let value2 = "Im ok :)";
-                this.setState({humidityState: value2});
+            if (humLive == optimum) {
+                this.setState({humidityState: "Just breezing!"});
+            } else if (humLive < optimum && humLive > 0) {
+                this.setState({humidityState: "I feel a bit dry out here!"});
+            } else if (humLive > optimum){
+              this.setState({humidityState: "Ugh, too TROPICAL for me!"});
             } else {
-                let value3 = "Like a sahara...";
-                this.setState({humidityState: value3});
+                this.setState({humidityState: "Like a sahara..."});
             }
         }, 2000)
     };
@@ -85,40 +91,36 @@ class DataTable extends Component {
     tempLevels = () => {
         setInterval(() => {
 
-            const maxVal = Number(this.state.temperatureAvg) + 10;
-            const minVal = Number(this.state.temperatureAvg) - 10;
-            let tempLive = Number(this.props.temperature);
-            console.log(maxVal);
-            if (tempLive >= maxVal) {
-                let value1 = "Ugh, too HOT for me!";
-                this.setState({temperatureState: value1});
-            } else if ((tempLive < maxVal) && (tempLive > minVal)) {
-                let value2 = "Im ok :)";
-                this.setState({temperatureState: value2});
-            } else {
-                let value3 = "Shit it's freezing";
-                this.setState({temperatureState: value3});
-            }
+          const optimum = this.state.temperatureAvg; // 3
+          let tempLive = temperatureCalibration(Number(this.props.temperature)); // vaihteleva
+
+          if (tempLive == optimum){
+            this.setState({temperatureState: "Nice weather buddy!"});
+          } else if (tempLive < optimum && tempLive > 0){
+            this.setState({temperatureState: "So cold.."});
+          } else if (tempLive > optimum){
+            this.setState({temperatureState: "It's a bit sweaty now"});
+          } else {
+            this.setState({temperatureState: "IM DYING......."});
+          }
         }, 2000)
     };
 
     soilLevels = () => {
         setInterval(() => {
 
-            const maxVal = Number(this.state.soilAvg + 10);
-            const minVal = Number(this.state.soilAvg - 10);
-            let soilLive = Number(this.props.soilmoisture);
+          const optimum = this.state.soilAvg; // 3
+          let soilLive = soilmoistureCalibration(Number(this.props.soilmoisture)); // vaihteleva
 
-            if (soilLive >= maxVal) {
-                let value1 = "Ugh, too wet for me!";
-                this.setState({soilState: value1});
-            } else if (soilLive < maxVal && soilLive > minVal) {
-                let value2 = "Im ok :)";
-                this.setState({soilState: value2});
-            } else {
-                let value3 = "Water me please!";
-                this.setState({soilState: value3});
-            }
+          if (soilLive == optimum){
+            this.setState({soilState: "My roots are doing just fine!"});
+          } else if (soilLive < optimum && soilLive > 0){
+            this.setState({soilState: "I could use a drink"});
+          } else if (soilLive > optimum){
+            this.setState({soilState: "Don't drown me please"});
+          } else {
+            this.setState({soilState: "IM DYING......."});
+          }
         }, 2000)
     };
 
@@ -129,6 +131,16 @@ class DataTable extends Component {
                 <h2>Live Data Feed</h2>
                 <p>Precise measurements from your beloved plant</p>
                 <table className="table table-bordered">
+                    <tbody>
+                      <tr>
+                          <td>Light {this.props.light} %</td>
+                          <td>Humidity {this.props.humidity} %</td>
+                          <td>Temperature {this.props.temperature} C´</td>
+                          <td>Soil {this.props.soilmoisture}</td>
+                      </tr>
+                    </tbody>
+                </table>
+                <table className="table table-bordered">
                     <thead>
                     <tr>
                         <th>Sensor</th>
@@ -137,22 +149,22 @@ class DataTable extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <tr className="success">
+                    <tr className="warning">
                         <td>Light</td>
                         <td>{this.props.light}</td>
                         <td>{this.state.lightState}</td>
                     </tr>
-                    <tr className="danger">
+                    <tr className="info">
                         <td>Humidity</td>
                         <td>{this.props.humidity}</td>
                         <td>{this.state.humidityState}</td>
                     </tr>
-                    <tr className="info">
+                    <tr className="danger">
                         <td>Temperature</td>
                         <td>{this.props.temperature}</td>
                         <td>{this.state.temperatureState}</td>
                     </tr>
-                    <tr className="warning">
+                    <tr className="success">
                         <td>Soil Moisture</td>
                         <td>{this.props.soilmoisture}</td>
                         <td>{this.state.soilState}</td>

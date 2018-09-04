@@ -35,7 +35,6 @@ class Addplant extends Component {
           this.setState({lightAvg: data[0].lightAvg});
           this.setState({humidityAvg: data[0].humidityAvg});
           this.setState({temperatureAvg: data[0].temperatureAvg});
-
       });
     }
     //
