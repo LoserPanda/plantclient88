@@ -88,7 +88,6 @@ tempLevels = () => {
     const maxVal = Number(this.state.temperatureAvg) + 10;
     const minVal = Number(this.state.temperatureAvg) -10;
     let tempLive = Number(this.props.temperature);
-    console.log(maxVal);
     if(tempLive >= maxVal){
         let value1 = "Ugh, too HOT for me!";
         this.setState({temperatureState: value1});
