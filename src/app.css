@@ -162,6 +162,7 @@ input[type=email], input[type=password], input[type=text] {
 
 .care-regime-img {
     max-height: 160px;
+    padding-left: 20px;
 }
 
 .care-regime-table-all {
