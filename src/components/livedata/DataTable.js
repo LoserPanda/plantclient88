@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import url from '../../config/sensordataurl';
-import LightScale, {lightCalibration} from './sensorCalibration/LightScale'
-import HumidityCalibration, {humidityCalibration} from './sensorCalibration/HumidityCalibration'
-import TemperatureCalibration, {temperatureCalibration} from './sensorCalibration/TemperatureCalibration'
-import SoilmoistureCalibration, {soilmoistureCalibration} from './sensorCalibration/SoilmoistureCalibration'
-import DataAlert, {getUserData} from './DataAlert'
+import {lightCalibration} from './sensorCalibration/LightScale'
+import {humidityCalibration} from './sensorCalibration/HumidityCalibration'
+import {temperatureCalibration} from './sensorCalibration/TemperatureCalibration'
+import {soilmoistureCalibration} from './sensorCalibration/SoilmoistureCalibration'
+import {getUserData} from './DataAlert'
 
 let temp = 0;
 
@@ -57,7 +57,7 @@ class DataTable extends Component {
             const optimum = this.state.lightAvg; // 3
             let lightLive = lightCalibration(Number(this.props.light)); // vaihteleva
 
-            if (lightLive == optimum){
+            if (lightLive === optimum){
               this.setState({lightState: "Yes, this is perfect"});
             } else if (lightLive < optimum && lightLive > 0){
               this.setState({lightState: "Oh it's too shady now.."});
@@ -76,7 +76,7 @@ class DataTable extends Component {
             const optimum = this.state.humidityAvg;
             let humLive = humidityCalibration(Number(this.props.humidity));
 
-            if (humLive == optimum) {
+            if (humLive === optimum) {
                 this.setState({humidityState: "Just breezing!"});
             } else if (humLive < optimum && humLive > 0) {
                 this.setState({humidityState: "I feel a bit dry out here!"});
@@ -94,7 +94,7 @@ class DataTable extends Component {
           const optimum = this.state.temperatureAvg; // 3
           let tempLive = temperatureCalibration(Number(this.props.temperature)); // vaihteleva
 
-          if (tempLive == optimum){
+          if (tempLive === optimum){
             this.setState({temperatureState: "Nice weather buddy!"});
           } else if (tempLive < optimum && tempLive > 0){
             this.setState({temperatureState: "So cold.."});
@@ -111,7 +111,7 @@ class DataTable extends Component {
           const optimum = this.state.soilAvg; // 3
           let soilLive = soilmoistureCalibration(Number(this.props.soilmoisture)); // vaihteleva
 
-          if (soilLive == optimum){
+          if (soilLive === optimum){
             this.setState({soilState: "My roots are doing just fine!"});
           } else if (soilLive < optimum && soilLive > 0){
             this.setState({soilState: "I could use a drink"});
@@ -119,7 +119,7 @@ class DataTable extends Component {
             this.setState({soilState: "Don't drown me please"});
           } else {
             //SENDS WARNING MAIL
-            if(temp == 0 || temp == 3500) {
+            if(temp === 0 || temp === 3500) {
               getUserData();
               temp = 1;
             } else {

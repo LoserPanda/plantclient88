@@ -6,8 +6,8 @@ const
     MINUTE = "minute",
     HOUR = "hour",
     DAY = "day",
-    MONTH = "month",
-    YEAR = "year";
+    MONTH = "month";
+    // YEAR = "year";
 
 
 class ChartBox extends Component {
@@ -41,17 +41,14 @@ class ChartBox extends Component {
     };
 
     componentDidMount() {
-        console.log("Ollaan componentMountissa", this.state.time);
         this.getData();
     };
 
     handleChange(event) {
         let itse = this;
-        console.log(event.target.value, "target")
         itse.setState({
             time: event.target.value
         });
-        console.log(this.state.time, "handleChange");
     }
 
     handleSubmit(event) {
