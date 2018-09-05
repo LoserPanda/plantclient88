@@ -20,10 +20,10 @@ class Livedata extends Component {
         socket.on('live', function (data) {
             var dataHandled = data.split(" ");
 
-            let light = parseInt(dataHandled[0]);
+            let light = parseInt(dataHandled[0], 10);
             let humidity = parseFloat(dataHandled[1]);
             let temperature = parseFloat(dataHandled[2]);
-            let soilmoisture = parseInt(dataHandled[3]);
+            let soilmoisture = parseInt(dataHandled[3], 10);
 
             itse.setState({light: light});
             itse.setState({humidity: humidity});

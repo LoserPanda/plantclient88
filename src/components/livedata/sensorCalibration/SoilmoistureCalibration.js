@@ -13,7 +13,6 @@ function soilmoistureCalibration(optimi){
   } else {
       return 0;
   }
-  return 0;
 }
 
 export {soilmoistureCalibration};

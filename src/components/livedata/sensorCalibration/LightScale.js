@@ -13,7 +13,6 @@ function lightCalibration(optimi){
   } else {
       return 0;
   }
-  return 0;
 }
 
 export {lightCalibration};

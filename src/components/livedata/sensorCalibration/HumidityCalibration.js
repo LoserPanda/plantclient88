@@ -13,7 +13,6 @@ function humidityCalibration(optimi){
   } else {
       return 0;
   }
-  return 0;
 }
 
 export {humidityCalibration};

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LogIn from "./LogIn";
-import SignUp from "./SignUp";
+// import SignUp from "./SignUp";
 
 class LoginSignupBox extends Component {
     /*

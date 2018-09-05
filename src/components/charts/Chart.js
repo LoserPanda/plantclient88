@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries} from 'react-vis';
+import {XYPlot, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries} from 'react-vis';
 import '../../../node_modules/react-vis/dist/style.css';
 
 class Chart extends Component {
