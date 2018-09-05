@@ -29,6 +29,7 @@ class Addplant extends Component {
       .then(data => {
         console.log(data);
           this.setState({data: data});
+          this.setState({plantID: data[0].plantID});
           this.setState({name: data[0].name});
           this.setState({photolink: data[0].photolink});
           this.setState({soilAvg: data[0].soilAvg});
@@ -38,21 +39,21 @@ class Addplant extends Component {
       });
     }
     //
-    // handleDataAdded = (p) => {
-    //     console.log(p);
-        // fetch(url.url + "/plants/addbyuserid/" + localStorage.getItem("UID"), {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(p)
-        // })
-        //     .then(res => {
-        //         alert("Plant added!");
-        //         this.componentDidMount();
-        //     })
-    // };
+    handleDataAdded = (p) => {
+        console.log(p);
+        fetch(url.url + "/plants/addbyuserid/" + localStorage.getItem("UID"), {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(p)
+        })
+            .then(res => {
+                alert("Plant added!");
+                this.componentDidMount();
+            })
+    };
 
     render() {
         return (

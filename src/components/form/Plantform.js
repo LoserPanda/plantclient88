@@ -2,7 +2,22 @@ import React, {Component} from 'react';
 import Plantdata from './Plantdata';
 
 class Plantform extends Component {
-    state = {plantID: "", name: '', photolink: '', soilAvg: '', lightAvg: "", humidityAvg: "", temperatureAvg: ""};
+    state = {
+      plantID: "",
+      name: "",
+      photolink: '',
+      soilAvg: '',
+      lightAvg: "",
+      humidityAvg: "",
+      temperatureAvg: ""
+    };
+
+    //   componentDidMount(){
+    //
+    //   console.log("JOUOUOU ID", this.props.plantID);
+    //   this.setState({plantID: this.props.plantID});
+    //   console.log(this.state);
+    // }
 
     handleNameChange = (e) => {
         const uusinimi = e.target.value;
@@ -12,7 +27,9 @@ class Plantform extends Component {
         this.setState({photolink: e.target.value});
     };
     handlePlantIDChange = (e) => {
-        this.setState({plantID: e.target.value});
+      this.state.plantID = e.target.value;
+      this.setState(this.state)
+        // this.setState({plantID: e.target.value});
     };
     handleSoilAvgChange = (e) => {
         this.setState({soilAvg: e.target.value});
@@ -29,7 +46,6 @@ class Plantform extends Component {
     handleCreateClick = (e) => {
         e.preventDefault();
         this.props.addData(this.state);
-        this.setState({name: '', photolink: '', soilAvg: '', lightAvg: "", humidityAvg: "", temperatureAvg: ""});
     };
 
 
@@ -37,9 +53,14 @@ class Plantform extends Component {
         return (
             <form>
                 <label>
+                    PLANT ID
+                </label>
+                    <input type="text" value={this.props.plantID}
+                            onChange={this.handlePlantIDChange}/>
+                <label>
                     Plant Name
                 </label>
-                    <input type="text" placeholder="Plant Name" value={this.props.name} onChange={this.handleNameChange}/>
+                    <input type="text" value={this.props.name}  onChange={this.handleNameChange}/>
                 <label>
                     Photo Link
                 </label>
@@ -66,7 +87,7 @@ class Plantform extends Component {
                 <input type="text" placeholder="Target Soil Moisture Conditions" value={this.props.soilAvg}
                        onChange={this.handleSoilAvgChange}/>
 
-                <input className="btn" type="submit" value="Add plant" onClick={this.handleCreateClick}/>
+                <input className="btn" type="submit" value="Update plant profile" onClick={this.handleCreateClick}/>
             </form>
         );
     }
