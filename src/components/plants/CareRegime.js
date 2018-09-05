@@ -117,7 +117,7 @@ class PlantBox extends Component {
                     <table className="care-regime-table-all">
                         <thead>
                         <tr>
-                            <th colspan="2">
+                            <th colSpan="2">
                                 <h2 className="care-regime-table-to-right">{this.state.plant.name}'s Care Regime</h2>
                                 <br/>
                             </th>

@@ -1,29 +1,8 @@
 import React, {Component} from 'react';
 import {XYPlot, XAxis, YAxis, VerticalGridLines, HorizontalGridLines, LineSeries} from 'react-vis';
-import url from '../../config/sensordataurl';
 import '../../../node_modules/react-vis/dist/style.css';
 
-class Chart extends Component {
-
-    state = {
-        results: []
-    };
-
-    componentDidMount() {
-        console.log(this.props.time, "johuighniohujk");
-        fetch(url.url + "/sensordata/" + this.props.time + "/byuserid/" + localStorage.getItem("UID"))
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                else {
-                    throw new Error('Data not found')
-                }
-            })
-            .then(data => {
-                this.setState({results: data});
-            });
-    }
+class Chart88 extends Component {
 
     handleTime = (time) => {
         let heatOfTheMoment = new Date(time);
@@ -31,33 +10,31 @@ class Chart extends Component {
     };
 
     render() {
-        console.log(this.props.time, "chartissa ollahan")
-
         const query = this.props.query;
         var dataArr;
         if (query === "light") {
-            dataArr = this.state.results.map((d) => {
+            dataArr = this.props.data.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.light)
                 }
             });
         } else if (query === "humidity") {
-            dataArr = this.state.results.map((d) => {
+            dataArr = this.props.data.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.humidity)
                 }
             });
         } else if (query === "soilmoisture") {
-            dataArr = this.state.results.map((d) => {
+            dataArr = this.props.data.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.soilmoisture)
                 }
             });
         } else if (query === "temperature") {
-            dataArr = this.state.results.map((d) => {
+            dataArr = this.props.data.map((d) => {
                 return {
                     x: d.time,
                     y: parseFloat(d.temperature)
@@ -117,4 +94,4 @@ class Chart extends Component {
 }
 
 
-export default Chart;
+export default Chart88;

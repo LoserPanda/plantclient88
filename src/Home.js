@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import TopNavigation from "./TopNavigation";
 import Livedata from './components/livedata/Livedata';
-import ChartBox from "./components/charts/ChartBox";
+import ChartBox88 from "./components/charts/ChartBox88";
 import CareRegime from "./components/plants/CareRegime";
 
 class Home extends Component {
@@ -41,7 +41,7 @@ class Home extends Component {
                         </div>
                     </div>
                     <div className="container">
-                        <ChartBox/>
+                        <ChartBox88/>
                     </div>
                 </div>
             </div>
