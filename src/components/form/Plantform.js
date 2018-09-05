@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Plantdata from './Plantdata';
+// import Plantdata from './Plantdata';
 import url from '../../config/sensordataurl';
 
 
