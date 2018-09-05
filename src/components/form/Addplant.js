@@ -39,26 +39,12 @@ class Addplant extends Component {
       });
     }
     //
-    handleDataAdded = (p) => {
-        console.log(p);
-        fetch(url.url + "/plants/addbyuserid/" + localStorage.getItem("UID"), {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(p)
-        })
-            .then(res => {
-                alert("Plant added!");
-                this.componentDidMount();
-            })
-    };
+
 
     render() {
         return (
             <div id="content">
-                <Plantform name={this.state.name} photolink={this.state.photolink} soilAvg={this.state.soilAvg} lightAvg={this.state.lightAvg} humidityAvg={this.state.humidityAvg} temperatureAvg={this.state.temperatureAvg} plantID={this.state.plantID} addData={this.handleDataAdded}/>
+                <Plantform name={this.state.name} photolink={this.state.photolink} soilAvg={this.state.soilAvg} lightAvg={this.state.lightAvg} humidityAvg={this.state.humidityAvg} temperatureAvg={this.state.temperatureAvg} plantID={this.state.plantID} />
             </div>
         );
     }
