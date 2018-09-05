@@ -26,7 +26,6 @@ class ChartBox extends Component {
     }
 
     getData = () => {
-        console.log(this.state.time, "johuighniohujk");
         fetch(url.url + "/sensordata/" + this.state.time + "/byuserid/" + localStorage.getItem("UID"))
             .then(response => {
                 if (response.ok) {

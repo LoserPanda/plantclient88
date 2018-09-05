@@ -11,7 +11,8 @@ class PlantProfile extends Component {
                 <TopNavigation/>
                 <div className="container">
                     <h2>Plant Profile</h2>
-                    <p>Possibility to view and update plant profile and care regime settings here!</p>
+                    <p>Here you can update your plant profile to help your plant to communicate with you better. Please be careful with choosing the right target conditions. This will quarantee you the best possible outcome.</p>
+                    <br/>
                     <Addplant/>
                 </div>
             </div>

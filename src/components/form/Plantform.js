@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Plantdata from './Plantdata';
 
 class Plantform extends Component {
-  state = {plantID: "",name: '', photolink: '', soilAvg: '', lightAvg: "", humidityAvg: "", temperatureAvg: ""};
+    state = {plantID: "", name: '', photolink: '', soilAvg: '', lightAvg: "", humidityAvg: "", temperatureAvg: ""};
 
     handleNameChange = (e) => {
         const uusinimi = e.target.value;
@@ -36,14 +36,37 @@ class Plantform extends Component {
     render() {
         return (
             <form>
-                <input type="text" placeholder="Plant Name" value={this.props.name} onChange={this.handleNameChange}/>
-                <input type="text" placeholder="Photo Link" value={this.props.photolink} onChange={this.handlePhotolinkChange}/>
-                <input type="text" placeholder="Soil Average" value={this.props.soilAvg} onChange={this.handleSoilAvgChange}/>
-                <input type="text" placeholder="Light Average" value={this.props.lightAvg} onChange={this.handleLightAvgChange}/>
-                <input type="text" placeholder="Humidity Average" value={this.props.humidityAvg} onChange={this.handleHumidityAvgChange}/>
-                <input type="text" placeholder="Temperature Average" value={this.props.temperatureAvg} onChange={this.handleTemperatureAvgChange}/>
+                <label>
+                    Plant Name
+                </label>
+                    <input type="text" placeholder="Plant Name" value={this.props.name} onChange={this.handleNameChange}/>
+                <label>
+                    Photo Link
+                </label>
+                <input type="text" placeholder="Photo Link" value={this.props.photolink}
+                       onChange={this.handlePhotolinkChange}/>
+                <label>
+                    Target Light Conditions
+                </label>
+                <input type="text" placeholder="Target Light Conditions" value={this.props.lightAvg}
+                       onChange={this.handleLightAvgChange}/>
+                <label>
+                    Target Humidity Conditions
+                </label>
+                <input type="text" placeholder="Target Humidity Conditions" value={this.props.humidityAvg}
+                       onChange={this.handleHumidityAvgChange}/>
+                <label>
+                    Target Temperature Conditions
+                </label>
+                <input type="text" placeholder="Target Temperature Conditions" value={this.props.temperatureAvg}
+                       onChange={this.handleTemperatureAvgChange}/>
+                <label>
+                    Target Soil Moisture Conditions
+                </label>
+                <input type="text" placeholder="Target Soil Moisture Conditions" value={this.props.soilAvg}
+                       onChange={this.handleSoilAvgChange}/>
 
-                <input type="submit" value="Add plant" onClick={this.handleCreateClick}/>
+                <input className="btn" type="submit" value="Add plant" onClick={this.handleCreateClick}/>
             </form>
         );
     }

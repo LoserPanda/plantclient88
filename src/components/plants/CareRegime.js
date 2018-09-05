@@ -1,8 +1,24 @@
 import React, {Component} from 'react';
 import url from '../../config/sensordataurl';
+import {lightCalibration} from "../livedata/sensorCalibration/LightScale";
+import {temperatureCalibration} from "../livedata/sensorCalibration/TemperatureCalibration";
+import {humidityCalibration} from "../livedata/sensorCalibration/HumidityCalibration";
+import {soilmoistureCalibration} from "../livedata/sensorCalibration/SoilmoistureCalibration";
 
 class PlantBox extends Component {
-    state = {plant: []};
+    state = {
+        plant: [],
+
+        soilState: [],
+        lightState: [],
+        humidityState: [],
+        temperatureState: [],
+
+        soilAvg: [],
+        lightAvg: [],
+        humidityAvg: [],
+        temperatureAvg: []
+    };
 
     componentDidMount() {
         let self = this;
@@ -12,10 +28,121 @@ class PlantBox extends Component {
             })
             .then((obj) => {
                 self.setState({plant: obj[0]});
-            })
+            });
 
+        let itse = this;
+        fetch(url.url + '/plants/plantconditions/' + localStorage.getItem('UID'))
+            .then((resp) => {
+                return resp.json();
+            })
+            .then((obj) => {
+                itse.setState({plant: obj[0]});
+            });
+
+
+        fetch(url.url + "/plants/averages/" + localStorage.getItem("UID"))
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                else {
+                    throw new Error('Data not found')
+                }
+            })
+            .then(data => {
+                let hum = data[0].humidityAvg;
+                let soil = data[0].soilAvg;
+                let light = data[0].lightAvg;
+                let tempe = data[0].temperatureAvg;
+                this.setState({humidityAvg: hum});
+                this.setState({soilAvg: soil});
+                this.setState({lightAvg: light});
+                this.setState({temperatureAvg: tempe});
+            });
+
+        this.soilLevels();
+        this.tempLevels();
+        this.humLevels();
+        this.lightLevels();
+    }
+
+    lightLevels = () => {
+        setInterval(() => {
+            console.log("gujgh", this.state.lightAvg)
+            const optimum = this.state.lightAvg;
+            let lightLive = lightCalibration(Number(this.props.light));
+
+            if (lightLive === optimum) {
+                this.setState({lightState: "lightning is just perfect"});
+            } else if (lightLive < optimum && lightLive > 0) {
+                this.setState({lightState: "it is too shady out here"});
+            } else if (lightLive > optimum) {
+                this.setState({lightState: "I am burning alive"});
+            } else {
+                this.setState({lightState: "I guess it is night time"});
+            }
+
+        }, 2000)
     };
 
+    humLevels = () => {
+        setInterval(() => {
+
+            const optimum = this.state.humidityAvg;
+            let humLive = humidityCalibration(Number(this.props.humidity));
+
+            if (humLive === optimum) {
+                this.setState({humidityState: "Just breezing!"});
+            } else if (humLive < optimum && humLive > 0) {
+                this.setState({humidityState: "I feel a bit dry out here!"});
+            } else if (humLive > optimum) {
+                this.setState({humidityState: "Ugh, too TROPICAL for me!"});
+            } else {
+                this.setState({humidityState: "Like a sahara..."});
+            }
+        }, 2000)
+    };
+
+    tempLevels = () => {
+        setInterval(() => {
+
+            const optimum = this.state.temperatureAvg;
+            let tempLive = temperatureCalibration(Number(this.props.temperature));
+
+            if (tempLive === optimum) {
+                this.setState({temperatureState: "Nice weather buddy!"});
+            } else if (tempLive < optimum && tempLive > 0) {
+                this.setState({temperatureState: "So cold.."});
+            } else if (tempLive > optimum) {
+                this.setState({temperatureState: "It's a bit sweaty now"});
+            } else {
+                this.setState({temperatureState: "IM DYING......."});
+            }
+        }, 2000)
+    };
+
+    soilLevels = () => {
+        setInterval(() => {
+
+            const optimum = this.state.soilAvg;
+            let soilLive = soilmoistureCalibration(Number(this.props.soilmoisture));
+
+            if (soilLive === optimum) {
+                this.setState({soilState: "My roots are doing just fine!"});
+            } else if (soilLive < optimum && soilLive > 0) {
+                this.setState({soilState: "I could use a drink"});
+            } else if (soilLive > optimum) {
+                this.setState({soilState: "Don't drown me please"});
+            } else {
+                this.setState({soilState: "IM DYING......."});
+            }
+        }, 2000)
+    };
+
+    joumaan88 = () => {
+        var joumaan = this.state.lightState;
+        window.responsiveVoice.speak(joumaan, "UK English Male");
+    };
 
     render() {
 
@@ -175,6 +302,10 @@ class PlantBox extends Component {
                         </tbody>
                     </table>
                 </div>
+                <button className="btn" onClick={this.joumaan88} type='button'>
+                    Let Me Talk to You<span> </span>
+                    <span className="glyphicon glyphicon-volume-up"></span>
+                </button>
             </div>
         );
     }
