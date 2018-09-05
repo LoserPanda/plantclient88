@@ -234,8 +234,8 @@ class DataTable extends Component {
                       <tr>
                           <td>Light {this.props.light} %</td>
                           <td>Humidity {this.props.humidity} %</td>
-                          <td>Temperature {this.props.temperature} C</td>
-                          <td>Soil {this.props.soilmoisture}</td>
+                          <td>Temperature {this.props.temperature} ºC</td>
+                          <td>Soil {this.props.soilmoisture} %</td>
                       </tr>
                     </tbody>
                 </table>
