@@ -19,6 +19,9 @@ class ChartBox88 extends Component {
             results: []
         };
 
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
     getData = () => {
@@ -48,29 +51,31 @@ class ChartBox88 extends Component {
         itse.setState({
             time: event.target.value
         });
-        itse.getData();
         console.log(this.state.time, "handleChange");
     }
 
-    render() {
+    handleSubmit(event) {
+        event.preventDefault();
+        this.getData();
+    }
 
-        const aika = this.state.time;
+    render() {
 
         return (
             <div>
                 <h2>Browse Data</h2>
 
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <h4>Choose time period to browse data</h4>
                     <p>Currently, you see
-                        the <u>{this.state.time === DAY ? "daily" : this.state.time + "ly"}</u> average of each; light,
+                        the <strong>{this.state.time === DAY ? "daily" : this.state.time + "ly"}</strong> average of each; light,
                         humidity, temperature and soil moisture.</p>
                     <label className="radio-inline">
                         <input
                             type="radio"
                             value="hour"
-                            checked={aika === HOUR}
-                            onChange={this.handleChange.bind(this)}
+                            checked={this.state.time === HOUR}
+                            onChange={this.handleChange}
                         />
                         Hour
                     </label>
@@ -78,8 +83,8 @@ class ChartBox88 extends Component {
                         <input
                             type="radio"
                             value="day"
-                            checked={aika === DAY}
-                            onChange={this.handleChange.bind(this)}
+                            checked={this.state.time === DAY}
+                            onChange={this.handleChange}
                         />
                         Day
                     </label>
@@ -87,20 +92,23 @@ class ChartBox88 extends Component {
                         <input
                             type="radio"
                             value="month"
-                            checked={aika === MONTH}
-                            onChange={this.handleChange.bind(this)}
+                            checked={this.state.time === MONTH}
+                            onChange={this.handleChange}
                         />
                         Month
                     </label>
-                    <label className="radio-inline">
-                        <input
-                            type="radio"
-                            value="year"
-                            checked={aika === YEAR}
-                            onChange={this.handleChange.bind(this)}
-                        />
-                        Year
-                    </label>
+                    {/*<label className="radio-inline">*/}
+                        {/*<input*/}
+                            {/*type="radio"*/}
+                            {/*value="year"*/}
+                            {/*checked={this.state.time === YEAR}*/}
+                            {/*onChange={this.handleChange}*/}
+                        {/*/>*/}
+                        {/*Year*/}
+                    {/*</label>*/}
+                    <br/>
+                    <br/>
+                    <button className="btn" type="submit">Implement filter</button>
                 </form>
                 <br/>
                 <ChartList time={this.state.time} data={this.state.results}/>
