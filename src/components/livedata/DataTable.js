@@ -4,7 +4,9 @@ import LightScale, {lightCalibration} from './sensorCalibration/LightScale'
 import HumidityCalibration, {humidityCalibration} from './sensorCalibration/HumidityCalibration'
 import TemperatureCalibration, {temperatureCalibration} from './sensorCalibration/TemperatureCalibration'
 import SoilmoistureCalibration, {soilmoistureCalibration} from './sensorCalibration/SoilmoistureCalibration'
-// import IconCalibration, {lightIconCalibration, humidityIconCalibration, tempetatureIconCalibration, soilIconCalibration} from './sensorCalibration/IconCalibration'
+import DataAlert, {getUserData} from './DataAlert'
+
+let temp = 0;
 
 class DataTable extends Component {
 
@@ -17,7 +19,9 @@ class DataTable extends Component {
         soilAvg: [],
         lightAvg: [],
         humidityAvg: [],
-        temperatureAvg: []
+        temperatureAvg: [],
+
+        alert: 0
     };
 
     componentDidMount() {
@@ -104,7 +108,6 @@ class DataTable extends Component {
 
     soilLevels = () => {
         setInterval(() => {
-
           const optimum = this.state.soilAvg; // 3
           let soilLive = soilmoistureCalibration(Number(this.props.soilmoisture)); // vaihteleva
 
@@ -115,6 +118,13 @@ class DataTable extends Component {
           } else if (soilLive > optimum){
             this.setState({soilState: "Don't drown me please"});
           } else {
+            //SENDS WARNING MAIL
+            if(temp == 0 || temp == 3500) {
+              getUserData();
+              temp = 1;
+            } else {
+              temp++;
+            }
             this.setState({soilState: "IM DYING......."});
           }
         }, 2000)
