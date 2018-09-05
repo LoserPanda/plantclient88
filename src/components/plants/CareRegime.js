@@ -312,10 +312,12 @@ class PlantBox extends Component {
                         </tbody>
                     </table>
                 </div>
-                <button className="btn" onClick={this.getMessage} type='button'>
-                    Let Me Talk to You<span> </span>
-                    <span className="glyphicon glyphicon-volume-up"></span>
-                </button>
+                <div className="align-left">
+                    <button className="btn" onClick={this.getMessage} type='button'>
+                        Let Me Talk to You<span> </span>
+                        <span className="glyphicon glyphicon-volume-up"></span>
+                    </button>
+                </div>
             </div>
         );
     }

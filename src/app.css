@@ -104,12 +104,12 @@ input[type=email], input[type=password], input[type=text] {
 }
 
 /*body {*/
-    /*background-image: url("http://2.bp.blogspot.com/-hGiMkSdNa7Q/UObJpuC-YPI/AAAAAAAANo4/EuA5NlhqPME/s1600/banana-tree.jpg");*/
+/*background-image: url("http://2.bp.blogspot.com/-hGiMkSdNa7Q/UObJpuC-YPI/AAAAAAAANo4/EuA5NlhqPME/s1600/banana-tree.jpg");*/
 /*}*/
 
 /*.container {*/
-    /*background-color: rgba(255, 255, 255, 1);*/
-    /*padding: 0;*/
+/*background-color: rgba(255, 255, 255, 1);*/
+/*padding: 0;*/
 /*}*/
 
 .chart-info-left {
@@ -167,4 +167,14 @@ input[type=email], input[type=password], input[type=text] {
 
 .care-regime-table-all {
 
+}
+
+span {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.left-align {
+    margin-left: auto;
+    margin-right: 0;
 }
