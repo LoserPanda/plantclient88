@@ -21,20 +21,20 @@ class TopNavigation extends Component {
             <Navbar staticTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">KasvIO</Link>
+                        <Link to="/"><p className="fontjou">Kasv<span className="IO">IO</span></p></Link>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavItem eventKey={1} href="/">Dashboard</NavItem>
-                        <NavItem eventKey={2} href="/profile">Plant Profile</NavItem>
+                        <NavItem className="fontjou" eventKey={1} href="/">Dashboard</NavItem>
+                        <NavItem className="fontjou" eventKey={2} href="/profile">Plant Profile</NavItem>
                         {/*<NavItem eventKey={2} href="/chartbox">ChartBox</NavItem>
                         <NavDropdown eventKey={3} title="Browse Data" id="basic-nav-dropdown">
                             <MenuItem eventKey={3.1} href="/">Show humidity</MenuItem>
                             <MenuItem eventKey={3.2} href="/">Show temperature</MenuItem>
         </NavDropdown>*/}
-                        <NavItem eventKey={3} onClick={this.logout} href="/">Logout</NavItem>
+                        <NavItem className="fontjou" eventKey={3} onClick={this.logout} href="/">Logout</NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

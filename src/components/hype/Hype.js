@@ -26,12 +26,12 @@ class Hype extends Component {
                 </div>
                 <div>
                     <h4 className="centered">
-                        KasvIO is designed to understand the needs of your beloved plant. You can conveniently track the
+                        KasvIO is designed to understand the needs of your beloved plants. You can conveniently track the
                         level of moisture, air humidity, lighting and temperature.
                         Photosynthesis is a phenomenon, which requires water, sunlight and optimal temperature.
                         Furthermore,
                         these values may vary significantly for different plants.
-                        With KasvIo you can easily choose the best conditions for your plant to grow in.
+                        With KasvIO you can easily choose the best conditions for your plant to grow in.
                     </h4>
                 </div>
                 <hr/>

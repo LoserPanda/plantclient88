@@ -246,6 +246,7 @@ class Plantform extends Component {
                         </div>
                     </div>
                 </div>
+                <br/>
                 <input className="btn" type="submit" value="Update plant profile" onClick={this.handleCreateClick}/>
             </form>
         );
