@@ -5,8 +5,8 @@ class SignUpInstructions extends Component {
     render() {
         return (
             <div>
-                <h2>Congratulations on the decision to start taking better care of your plants!</h2>
-                <h3>Here are some instructions to get you started.</h3>
+                <h2 className="centered">Congratulations on the decision to start taking better care of your plants!</h2>
+                <h3>Instructions to get you started</h3>
                 <ol>
                     <li>Start off by entering your device's serial number. You'll need it in order to identify your plant's sensor data.</li>
                     <li>Enter your beloved plant's name. This is optional though recommended. You can edit your plant's name later on.</li>

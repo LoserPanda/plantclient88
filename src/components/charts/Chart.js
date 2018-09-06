@@ -9,6 +9,19 @@ class Chart extends Component {
         return heatOfTheMoment.toLocaleString();
     };
 
+    giveInfo = (jou) => {
+        if (jou === "minute") {
+            return "Results from last 1 hour"
+        } else if (jou === "hour") {
+            return "Results from last 7 days"
+        } else if (jou === "day") {
+            return "Results from last 14 days"
+        } else if (jou === "month") {
+            return "Results from last 12 months"
+        }
+    };
+
+
     render() {
         const query = this.props.query;
         var dataArr;
@@ -44,7 +57,9 @@ class Chart extends Component {
 
         return (
             <div className="table-responsive">
-                <h2>{this.props.title}</h2>
+                <h2>{this.props.title} <span className="chart-info">
+                    ({this.giveInfo(this.props.time)})
+                </span></h2>
                 <div id="datapoint">
                     <table>
                         <tbody>

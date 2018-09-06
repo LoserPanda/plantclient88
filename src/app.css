@@ -22,7 +22,7 @@ input[type=email], input[type=password], input[type=text] {
 
 .formdiv {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #64984b;
     padding: 20px;
 }
 
@@ -53,7 +53,7 @@ input[type=email], input[type=password], input[type=text] {
 }
 
 .imgContainer:hover .overlay {
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .text {
@@ -165,16 +165,46 @@ input[type=email], input[type=password], input[type=text] {
     padding-left: 20px;
 }
 
-.care-regime-table-all {
-
-}
-
 span {
     padding-left: 2px;
     padding-right: 2px;
 }
 
-.left-align {
-    margin-left: auto;
-    margin-right: 0;
+.chart-info {
+    font-size: 80%;
+    opacity: 0.6;
+}
+
+.padd-radios {
+    padding-left: 25px;
+}
+
+.bridge-lol {
+    font-size: 70%;
+}
+
+.NikosImgSmall {
+    height: 10vh;
+}
+
+.header-footer {
+    margin: 0;
+    background-color: #242423;
+    color: white;
+}
+
+.centered {
+    text-align: center;
+}
+
+.btn {
+    background-color: #64984b;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Days One';
+}
+
+.IO {
+    color: #64984b;
 }

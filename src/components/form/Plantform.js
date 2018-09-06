@@ -118,14 +118,15 @@ class Plantform extends Component {
                 {/*<input type="number" placeholder="Target Soil Moisture Conditions" value={this.state.soilAvg}*/}
                 {/*onChange={this.handleSoilAvgChange}/>*/}
                 <div className="Container">
+                    <br/>
                     <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-4">
                             <label>
                                 Target Light Conditions
                             </label>
-                            <div className="form-group">
+                            <div className="form-group padd-radios">
                                 <div className="radio">
-                                    <input type="radio" name="lightAvg" value={3} checked={this.state.lightAvg==3}
+                                    <input type="radio" name="lightAvg" value={3} checked={this.state.lightAvg == 3}
                                            onChange={this.handleLightAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-certificate lighticon"></span>
@@ -134,7 +135,7 @@ class Plantform extends Component {
                                     </label>
                                 </div>
                                 <div className="radio">
-                                    <input type="radio" name="lightAvg" value={2} checked={this.state.lightAvg==2}
+                                    <input type="radio" name="lightAvg" value={2} checked={this.state.lightAvg == 2}
                                            onChange={this.handleLightAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-certificate lighticon"></span>
@@ -142,7 +143,7 @@ class Plantform extends Component {
                                     </label>
                                 </div>
                                 <div className="radio disabled">
-                                    <input type="radio" name="lightAvg" value={1} checked={this.state.lightAvg==1}
+                                    <input type="radio" name="lightAvg" value={1} checked={this.state.lightAvg == 1}
                                            onChange={this.handleLightAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-certificate lighticon"></span>
@@ -153,9 +154,10 @@ class Plantform extends Component {
                             <label>
                                 Target Humidity Conditions
                             </label>
-                            <div className="form-group">
+                            <div className="form-group padd-radios">
                                 <div className="radio">
-                                    <input type="radio" name="humidityAvg" value={3} checked={this.state.humidityAvg==3}
+                                    <input type="radio" name="humidityAvg" value={3}
+                                           checked={this.state.humidityAvg == 3}
                                            onChange={this.handleHumidityAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-cloud humidityicon"></span>
@@ -164,7 +166,8 @@ class Plantform extends Component {
                                     </label>
                                 </div>
                                 <div className="radio">
-                                    <input type="radio" name="humidityAvg" value={2} checked={this.state.humidityAvg==2}
+                                    <input type="radio" name="humidityAvg" value={2}
+                                           checked={this.state.humidityAvg == 2}
                                            onChange={this.handleHumidityAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-cloud humidityicon"></span>
@@ -172,7 +175,8 @@ class Plantform extends Component {
                                     </label>
                                 </div>
                                 <div className="radio disabled">
-                                    <input type="radio" name="humidityAvg" value={1} checked={this.state.humidityAvg==1}
+                                    <input type="radio" name="humidityAvg" value={1}
+                                           checked={this.state.humidityAvg == 1}
                                            onChange={this.handleHumidityAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-cloud humidityicon"></span>
@@ -180,13 +184,14 @@ class Plantform extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-6">
+                        <div className="col-sm-4">
                             <label>
                                 Target Temperature Conditions
                             </label>
-                            <div className="form-group">
+                            <div className="form-group padd-radios">
                                 <div className="radio">
-                                    <input type="radio" name="temperatureAvg" value={3} checked={this.state.temperatureAvg==3}
+                                    <input type="radio" name="temperatureAvg" value={3}
+                                           checked={this.state.temperatureAvg == 3}
                                            onChange={this.handleTemperatureAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-fire temperatureicon"></span>
@@ -195,7 +200,8 @@ class Plantform extends Component {
                                     </label>
                                 </div>
                                 <div className="radio">
-                                    <input type="radio" name="temperatureAvg" value={2} checked={this.state.temperatureAvg==2}
+                                    <input type="radio" name="temperatureAvg" value={2}
+                                           checked={this.state.temperatureAvg == 2}
                                            onChange={this.handleTemperatureAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-fire temperatureicon"></span>
@@ -203,7 +209,8 @@ class Plantform extends Component {
                                     </label>
                                 </div>
                                 <div className="radio disabled">
-                                    <input type="radio" name="temperatureAvg" value={1} checked={this.state.temperatureAvg==1}
+                                    <input type="radio" name="temperatureAvg" value={1}
+                                           checked={this.state.temperatureAvg == 1}
                                            onChange={this.handleTemperatureAvgChange}/>
                                     <label>
                                         <span className="glyphicon glyphicon-fire temperatureicon"></span>
@@ -214,23 +221,23 @@ class Plantform extends Component {
                             <label>
                                 Target Soil Moisture Conditions
                             </label>
-                            <div className="form-group">
+                            <div className="form-group padd-radios">
                                 <div className="radio">
-                                    <input type="radio" name="soilAvg" value={3} checked={this.state.soilAvg==3}
+                                    <input type="radio" name="soilAvg" value={3} checked={this.state.soilAvg == 3}
                                            onChange={this.handleSoilAvgChange}/><label><span
                                     className="glyphicon glyphicon-tint soilmoistureicon"></span>
                                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span></label>
                                 </div>
                                 <div className="radio">
-                                    <input type="radio" name="soilAvg" value={2} checked={this.state.soilAvg==2}
+                                    <input type="radio" name="soilAvg" value={2} checked={this.state.soilAvg == 2}
                                            onChange={this.handleSoilAvgChange}/><label>
                                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                                 </label>
                                 </div>
                                 <div className="radio disabled">
-                                    <input type="radio" name="soilAvg" value={1} checked={this.state.soilAvg==1}
+                                    <input type="radio" name="soilAvg" value={1} checked={this.state.soilAvg == 1}
                                            onChange={this.handleSoilAvgChange}/><label>
                                     <span className="glyphicon glyphicon-tint soilmoistureicon"></span>
                                 </label>

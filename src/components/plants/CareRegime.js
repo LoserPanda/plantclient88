@@ -10,8 +10,8 @@ class PlantBox extends Component {
         plant: [],
 
         lightState: 'Hello',
-        humidityState: 'nice to have you back',
-        temperatureState: 'please wait a moment',
+        humidityState: 'nice to have you back, my dear. ',
+        temperatureState: 'Please wait a moment',
         soilState: 'I will come back to you!',
 
         soilAvg: [],
@@ -90,7 +90,7 @@ class PlantBox extends Component {
             if (lightLive === optimum) {
                 this.setState({lightState: "the lighting is just perfect"});
             } else if (lightLive < optimum && lightLive > 0) {
-                this.setState({lightState: "it is too shady out here"});
+                this.setState({lightState: "it is too shady here. Oh, dear"});
             } else if (lightLive > optimum) {
                 this.setState({lightState: "I am burning alive"});
             } else {
@@ -312,7 +312,9 @@ class PlantBox extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className="align-left">
+                <br/>
+                <br/>
+                <div className="pull-right">
                     <button className="btn" onClick={this.getMessage} type='button'>
                         Let Me Talk to You<span> </span>
                         <span className="glyphicon glyphicon-volume-up"></span>

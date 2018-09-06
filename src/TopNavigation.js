@@ -21,7 +21,7 @@ class TopNavigation extends Component {
             <Navbar staticTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">Navigation</Link>
+                        <Link to="/">KasvIO</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import palmu from "./palmu.png";
+import plant from "./plant.jpg";
 
 
 class Technologies extends Component {
@@ -8,12 +8,14 @@ class Technologies extends Component {
     render() {
         return (
             <div>
-                <h2>Plants</h2>
+                <h2 className="centered">Plants</h2>
                 <hr/>
                 <div className="imgContainer">
-                    <img className="NikosImg" src={palmu} alt="Plants"/>
+                    <img className="NikosImg" src={plant} alt="Plants"/>
                     <div className="overlay">
-                        <div className="text">Plants</div>
+                        <div className="text">
+                            KasvIO cares about your plant's well-being
+                        </div>
                     </div>
                 </div>
                 <hr/>
